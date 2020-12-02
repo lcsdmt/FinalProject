@@ -1,4 +1,5 @@
 import * as React from "react";
+import { iRestaurants } from "../utils/types";
 
 // class App extends React.Component<IAppProps, IAppState> {
 //   constructor(props: IAppProps) {
@@ -54,42 +55,56 @@ import * as React from "react";
 
 // export default App;
 
-const App = (props: AppProps) => {
-  const [restaurants, setRestaurants] = React.useState<string>("");
+const Restaurants: React.FC = (props: RestaurantsProps) => {
+  const [restaurants, setRestaurants] = React.useState<iRestaurants[]>([]);
 
   React.useEffect(() => {
     (async () => {
+      let placeIDsArr = [
+        "ChIJaznSXhcbiYgR3iA_BDfkHcQ",
+        "ChIJjexI31UaiYgRgzgZkITSXGE",
+        "ChIJN_ULuJIaiYgRrrw0xTzkqU4",
+        "ChIJN_ULuJIaiYgRrrw0xTzkqU4",
+      ];
+      // placeIDsArr.forEach(element =>  
       try {
+        // const places = await fetch('/api/restaurants/')
+        // console.log(places)
+        
         const url = "https://cors-anywhere.herokuapp.com/";
         fetch(
           url +
-            "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.543682, -86.779633&radius=32187&type=restaurant&keyword=restaurant&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA"
+            `https://maps.googleapis.com/maps/api/place/details/json?place_id=${element}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
         )
           .then((resp) => {
             return resp.json();
           })
           .then((data) => {
-            console.log(data);
+            console.log(data.results);
+            setRestaurants(data.results);
           })
           .catch((err) => console.error(err));
-        // const res = await fetch('/api/hello');
-        // const greeting = await res.json();
-        setRestaurants(restaurants);
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
 
-  return (
-    <div className="min-vh-100 d-flex justify-content-center align-items-center">
-      <h1 className="display-1">Hello {restaurants}!</h1>
-    </div>
-  );
+  return restaurants.map((restaurant, index) => {
+    return (
+      <div
+        key={index}
+        className="min-vh-100 d-flex justify-content-center align-items-center"
+      >
+        <h4 className="display-1">Hello {restaurant.name}!</h4>
+        <p>{restaurant.formatted_phone_number}!</p>
+        <p>{restaurant.formatted_address}!</p>
+        <p>{restaurant.url}!</p>
+      </div>
+    );
+  });
 };
 
-interface AppProps {
-  name: string;
-}
+interface RestaurantsProps {}
 
-export default { App };
+export default Restaurants;

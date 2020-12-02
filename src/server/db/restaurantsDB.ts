@@ -6,8 +6,6 @@ const findOneById = async (id: any) => Query(`SELECT * FROM restaurants WHERE id
 export const allRestaurants = async () => Query(`SELECT * from restaurants`);
 
 
-
-
 export default {
   allRestaurants,
   findOneById,
