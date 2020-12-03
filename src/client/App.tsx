@@ -4,7 +4,7 @@ import NavBar from "./components/navBar"
 import Home from "./components/homePage";
 import Restaurants from "./components/restaurantsPage";
 import Bars from "./components/barsPage";
-// import Attractions from "./components/attractionsPage"
+import Attractions from "./components/attractionsPage"
 
 const App: React.FC<IAppProps> = () => {
   return (
@@ -15,7 +15,7 @@ const App: React.FC<IAppProps> = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/restaurants" component={Restaurants} />
         <Route exact path="/bars" component={Bars} />
-        {/* <Route exact path="/attractions" component={Attractions} /> */}
+        <Route exact path="/attractions" component={Attractions} />
       </Switch>
     </Router>
   );

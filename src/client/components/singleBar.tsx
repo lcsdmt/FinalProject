@@ -8,7 +8,6 @@ const SingleBar: React.FC = (props) => {
 
   const fetchBar = async () => {
     try {
-      console.log("test");
       const url = "https://cors-anywhere.herokuapp.com/";
       await fetch(
         url +
@@ -43,17 +42,16 @@ const SingleBar: React.FC = (props) => {
           <h5>
             <u>{bar.name}</u>
           </h5>
+          <p>{bar.description}</p>
           <h5 className="text-info">{bar.formatted_phone_number}</h5>
           <h5>{bar.formatted_address}</h5>
           <a href={bar.website}>{bar.website}</a>
           <br />
           <a href={bar.url}>{bar.url}</a>
           <h5>Google User Rating:{bar.rating}</h5>
-          <p>{bar.description}</p>
-
           {hours.map((hour) => (
             <h6>{hour}</h6>
-          ))}     
+          ))}
         </div>
       </div>
     </>

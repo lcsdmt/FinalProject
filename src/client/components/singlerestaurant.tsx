@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { iRestaurants } from "../utils/types";
 
-
 const SingleRestaurant: React.FC = (props) => {
   const [restaurant, setRestaurant] = useState<iRestaurants>({});
   const [hours, setHours] = useState<Array<any>>([]);
@@ -44,14 +43,13 @@ const SingleRestaurant: React.FC = (props) => {
           <h5>
             <u>{restaurant.name}</u>
           </h5>
+          <p>{restaurant.description}</p>
           <h5 className="text-info">{restaurant.formatted_phone_number}</h5>
           <h5>{restaurant.formatted_address}</h5>
           <a href={restaurant.website}>{restaurant.website}</a>
           <br />
           <a href={restaurant.url}>{restaurant.url}</a>
           <h5>Google User Rating:{restaurant.rating}</h5>
-          <p>{restaurant.description}</p>
-
           {hours.map((hour) => (
             <h6>{hour}</h6>
           ))}
