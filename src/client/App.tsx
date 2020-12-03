@@ -5,6 +5,7 @@ import {
 	Route
 } from "react-router-dom";
 import Restaurants from "./components/restaurantsPage"
+import Bars from "./components/barsPage"
 
 
 const App: React.FC<IAppProps> = () => {

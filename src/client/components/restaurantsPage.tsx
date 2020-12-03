@@ -1,6 +1,6 @@
 import * as React from "react";
 import { iRestaurants } from "../utils/types";
-import SingleRestaurant from "./singlerestaurant";
+import SingleRestaurant from "./singleRestaurant";
 
 const Restaurants: React.FC = (props: RestaurantsProps) => {
   let dbPlacesIDs = [];
@@ -21,23 +21,9 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
   React.useEffect(() => {
     fetchRestaurants();
   }, []);
-  
+
   return ids.map((placeID) => <SingleRestaurant ID={placeID} />);
 };
-
-// return restaurants.map((restaurant, index) => {
-//   return (
-//     <div
-//       key={index}
-//       className="min-vh-100 d-flex justify-content-center align-items-center"
-//     >
-//       <h4 className="display-1">Hello {restaurant.name}!</h4>
-//       <p>{restaurant.formatted_phone_number}!</p>
-//       <p>{restaurant.formatted_address}!</p>
-//       <p>{restaurant.url}!</p>
-//     </div>
-//   );
-// });
 
 interface RestaurantsProps {}
 

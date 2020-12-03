@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { iRestaurants } from "../utils/types";
+import { iBars } from "../utils/types";
 
-const SingleRestaurant: React.FC = (props) => {
-  const [restaurant, setRestaurant] = useState<iRestaurants>({});
-  //   console.log(props.hey);
+const SingleBar: React.FC = (props) => {
+  const [bar, setBar] = useState<iBars>({});
 
-  const fetchRestaurant = async () => {
+  const fetchBar = async () => {
     try {
       console.log("test");
       const url = "https://cors-anywhere.herokuapp.com/";
@@ -15,7 +14,11 @@ const SingleRestaurant: React.FC = (props) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          setRestaurant(data.result);
+            if(data.result) {
+                setBar(data.result);
+            } else {
+                return
+            }
         })
         .catch((err) => console.error(err));
     } catch (error) {
@@ -24,22 +27,21 @@ const SingleRestaurant: React.FC = (props) => {
   };
 
   useEffect(() => {
-    fetchRestaurant();
+    fetchBar();
   }, []);
 
   return (
-    <div key={restaurant.place_id}>
-      <h5>{restaurant.name}</h5>
-      <h5>{restaurant.formatted_phone_number}</h5>
-      <h5>{restaurant.formatted_address}</h5>
-      <h5>{restaurant.url}</h5>
+    <div key={bar.place_id}>
+      <h5>{bar.name}</h5>
+      <h5>{bar.formatted_phone_number}</h5>
+      <h5>{bar.formatted_address}</h5>
+      <h5>{bar.url}</h5>
     </div>
   );
 };
 
-
-interface RestaurantProps {
+interface BarProps {
   id: any;
 }
 
-export default SingleRestaurant;
+export default SingleBar;
