@@ -12,7 +12,7 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
       const dbPlaces = await data.json();
 
       dbPlaces.forEach((place) => dbPlacesIDs.push(place.place_id));
-      setIDs([...dbPlacesIDs])
+      setIDs([...dbPlacesIDs]);
     } catch (err) {
       console.error(err);
     }
@@ -21,11 +21,8 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
   React.useEffect(() => {
     fetchRestaurants();
   }, []);
-
-
   
-   return ids.map((placeID) =>  <SingleRestaurant hey={placeID} />);
-
+  return ids.map((placeID) => <SingleRestaurant ID={placeID} />);
 };
 
 // return restaurants.map((restaurant, index) => {

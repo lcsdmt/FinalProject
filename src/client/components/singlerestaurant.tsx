@@ -12,30 +12,26 @@ const SingleRestaurant: React.FC = (props) => {
       const url = "https://cors-anywhere.herokuapp.com/";
       await fetch(
         url +
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.hey}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
+          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.ID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
       )
-        .then((res) => {
-          console.log(res);
-          console.log("test");
-          return res.json();
-        })
+        .then((res) => res.json())
         .then((data) => {
-          setRestaurant(data.results);
+            setRestaurant(data.result)
         })
         .catch((err) => console.error(err));
     } catch (error) {
       console.log(error);
     }
-};
-    useEffect(() => {
-      fetchRestaurant();
-    }, []);
-  
+  };
+
+  useEffect(() => {
+    fetchRestaurant();
+  }, []);
 
   return (
     <div>
       <h1>{restaurant.name}</h1>
-      <h1>{restaurant.business_status}</h1>
+      <h1>{restaurant.formatted_address}</h1>
     </div>
   );
 };
