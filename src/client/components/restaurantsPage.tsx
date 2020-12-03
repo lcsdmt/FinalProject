@@ -22,7 +22,7 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
     fetchRestaurants();
   }, []);
 
-  return ids.map((placeID) => <SingleRestaurant ID={placeID} />);
+  return ids.map((placeID, index) => <SingleRestaurant key={index} ID={placeID} />);
 };
 
 interface RestaurantsProps {}

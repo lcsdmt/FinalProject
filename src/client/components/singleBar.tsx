@@ -3,6 +3,8 @@ import { iBars } from "../utils/types";
 
 const SingleBar: React.FC = (props) => {
   const [bar, setBar] = useState<iBars>({});
+  const [hours, setHours] = useState<Array<any>>([]);
+  const [ifOpen, setIfOpen] = useState({});
 
   const fetchBar = async () => {
     try {
@@ -14,11 +16,13 @@ const SingleBar: React.FC = (props) => {
       )
         .then((res) => res.json())
         .then((data) => {
-            if(data.result) {
-                setBar(data.result);
-            } else {
-                return
-            }
+          if (data.result) {
+            setBar(data.result);
+            setHours(data.result.opening_hours.weekday_text);
+            setIfOpen(data.result.opening_hours.open_now);
+          } else {
+            return;
+          }
         })
         .catch((err) => console.error(err));
     } catch (error) {
@@ -31,12 +35,26 @@ const SingleBar: React.FC = (props) => {
   }, []);
 
   return (
-    <div key={bar.place_id}>
-      <h5>{bar.name}</h5>
-      <h5>{bar.formatted_phone_number}</h5>
-      <h5>{bar.formatted_address}</h5>
-      <h5>{bar.url}</h5>
-    </div>
+    <>
+      <div  className="card">
+        <div className="card-body shadow">
+          {/* <h5>{bar.photos}</h5> */}
+          <h5>
+            <u>{bar.name}</u>
+          </h5>
+          <h5 className="text-info">{bar.formatted_phone_number}</h5>
+          <h5>{bar.formatted_address}</h5>
+          <a href={bar.website}>{bar.website}</a><br/>
+          <a href={bar.url}>{bar.url}</a>
+          <h5>Google User Rating:{bar.rating}</h5>
+
+          {hours.map((hour) => (
+            <h6>{hour}</h6>
+          ))}
+          {/* <h5>{bar.opening_hours}</h5> */}
+        </div>
+      </div>
+    </>
   );
 };
 

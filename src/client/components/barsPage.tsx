@@ -22,7 +22,7 @@ const Bars: React.FC = (props: BarsProps) => {
     fetchBars();
   }, []);
 
-  return ids.map((barID) => <SingleBar ID={barID} />);
+  return ids.map((barID, index) => <SingleBar key={index} ID={barID} />);
 };
 
 interface BarsProps {}
