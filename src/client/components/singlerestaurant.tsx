@@ -14,11 +14,12 @@ const SingleRestaurant: React.FC = (props) => {
       const url = "https://cors-anywhere.herokuapp.com/";
       await fetch(
         url +
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.ID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
+          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.place.placeID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
       )
         .then((res) => res.json())
         .then((data) => {
           if (data.result) {
+            data.result.description = props.place.description;
             setRestaurant(data.result);
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
@@ -50,12 +51,11 @@ const SingleRestaurant: React.FC = (props) => {
           <br />
           <a href={restaurant.url}>{restaurant.url}</a>
           <h5>Google User Rating:{restaurant.rating}</h5>
-          {/* <p>{restaurant.description}</p> */}
+          <p>{restaurant.description}</p>
 
           {hours.map((hour) => (
             <h6>{hour}</h6>
           ))}
-          {/* <h5>{restaurant.opening_hours}</h5> */}
         </div>
       </div>
     </>

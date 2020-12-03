@@ -12,11 +12,12 @@ const SingleBar: React.FC = (props) => {
       const url = "https://cors-anywhere.herokuapp.com/";
       await fetch(
         url +
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.ID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
+          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.bar.barID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
       )
         .then((res) => res.json())
         .then((data) => {
           if (data.result) {
+            data.result.description = props.bar.description;
             setBar(data.result);
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
@@ -36,7 +37,7 @@ const SingleBar: React.FC = (props) => {
 
   return (
     <>
-      <div  className="card">
+      <div className="card">
         <div className="card-body shadow">
           {/* <h5>{bar.photos}</h5> */}
           <h5>
@@ -44,14 +45,15 @@ const SingleBar: React.FC = (props) => {
           </h5>
           <h5 className="text-info">{bar.formatted_phone_number}</h5>
           <h5>{bar.formatted_address}</h5>
-          <a href={bar.website}>{bar.website}</a><br/>
+          <a href={bar.website}>{bar.website}</a>
+          <br />
           <a href={bar.url}>{bar.url}</a>
           <h5>Google User Rating:{bar.rating}</h5>
+          <p>{bar.description}</p>
 
           {hours.map((hour) => (
             <h6>{hour}</h6>
-          ))}
-          {/* <h5>{bar.opening_hours}</h5> */}
+          ))}     
         </div>
       </div>
     </>

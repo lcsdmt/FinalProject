@@ -3,16 +3,16 @@ import { iBars } from "../utils/types";
 import SingleBar from "./singleBar";
 
 const Bars: React.FC = (props: BarsProps) => {
-  let dbBarsIDs = [];
-  const [ids, setIDs] = React.useState<iBars[]>([]);
+  let dbBarsInfo = [];
+  const [barIDs, setBarsInfo] = React.useState<iBars[]>([]);
 
   const fetchBars = async () => {
     try {
       const data = await fetch("/api/bars");
       const dbBars = await data.json();
 
-      dbBars.forEach(bar => dbBarsIDs.push(bar.place_id));
-      setIDs([...dbBarsIDs]);
+      dbBars.forEach(bar => dbBarsInfo.push({barID: bar.place_id, description: bar.description}));
+      setBarsInfo([...dbBarsInfo]);
     } catch (err) {
       console.error(err);
     }
@@ -22,7 +22,7 @@ const Bars: React.FC = (props: BarsProps) => {
     fetchBars();
   }, []);
 
-  return ids.map((barID, index) => <SingleBar key={index} ID={barID} />);
+  return barIDs.map((bar, index) => <SingleBar bar={bar} key={index} />);
 };
 
 interface BarsProps {}

@@ -20,7 +20,7 @@ export interface iBars {
   website: string;
   formatted_phone_number: string;
   formatted_address: string;
-  opening_hours: Array<string>;
+  opening_hours: {weekday_text: Array<any>};
   description: string;
   weekday_text: string;
   rating: number;
