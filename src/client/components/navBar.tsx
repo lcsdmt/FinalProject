@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const NavBar: React.FC = (props: NavBarProps) => {
     return (
+      // not actually a nav bar yet
       <>
       <Link to={`/`}>
           <button className="btn btn-sm btn-outline-info rounded-pill">
