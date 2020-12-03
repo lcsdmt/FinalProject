@@ -14,6 +14,11 @@ const Home: React.FC = (props: HomeProps) => {
           Bars
         </button>
       </Link>
+      <Link to={`/attractions`}>
+        <button className="btn btn-sm btn-outline-info rounded-pill">
+          Attractions
+        </button>
+      </Link>
     </div>
   );
 };
