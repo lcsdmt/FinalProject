@@ -15,7 +15,11 @@ const SingleRestaurant: React.FC = (props) => {
       )
         .then((res) => res.json())
         .then((data) => {
-          setRestaurant(data.result);
+            if(data.result) {
+                setRestaurant(data.result);
+            } else {
+                return
+            }
         })
         .catch((err) => console.error(err));
     } catch (error) {
