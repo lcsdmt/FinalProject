@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { iRestaurants } from "../utils/types";
-import { Link } from "react-router-dom";
-import restaurantsDB from "../../server/db/restaurantsDB";
+
 
 const SingleRestaurant: React.FC = (props) => {
   const [restaurant, setRestaurant] = useState<iRestaurants>({});
