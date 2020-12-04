@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { iRestaurants } from "../utils/types";
 
-const SingleRestaurant: React.FC = (props) => {
+const SingleRestaurant: React.FC = (props: SRprops) => {
   const [restaurant, setRestaurant] = useState<iRestaurants>({});
   const [hours, setHours] = useState<Array<any>>([]);
   const [ifOpen, setIfOpen] = useState({});
@@ -21,6 +21,7 @@ const SingleRestaurant: React.FC = (props) => {
             setRestaurant(data.result);
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
+            console.log(props.key)
           } else {
             return;
           }
@@ -36,7 +37,7 @@ const SingleRestaurant: React.FC = (props) => {
   }, []);
 
   return (
-    <>
+    <React.Fragment key={props.id}>
       <div className="card">
         <div className="card-body shadow">
           {/* <h5>{restaurant.photos}</h5> */}
@@ -55,11 +56,11 @@ const SingleRestaurant: React.FC = (props) => {
           ))}
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 
-interface RestaurantProps {
+interface SRprops {
   id: any;
 }
 
