@@ -4,15 +4,23 @@ import db from '../../db';
 
 const router = express.Router();
 
-const isAdmin: express.RequestHandler = (req, res, next) => {
-    if(req.user || req.user.role !== 'admin') {
+interface ReqUser extends express.Request {
+    user: {
+        role: string,
+        email: string
+        //commonly a user record from the database
+    }
+}
+
+const isAdmin: express.RequestHandler = (req: ReqUser, res, next) => {
+    if (!req.user || req.user.role !== 'admin') {
         return res.sendStatus(401);
     } else {
         return next();
     }
 };
 
-router.get('/:id?', async (req, res) => {
+router.get('/:id?', isAdmin, async (req, res) => {
     console.log('works')
     let id = req.params.id
     if (id) {

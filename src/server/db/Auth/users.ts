@@ -4,7 +4,7 @@ const findOneByEmail = async (email:string) => Query(`SELECT * FROM users WHERE 
 
 const findOneById = async (id: number) => Query(`SELECT * FROM users WHERE id = ${id}`);
 
-const insert = async (user:any) => Query(`INSERT INTO users (email, password, role) VALUES ?`, user);
+const insert = async (email:string, password:string, role:string) => Query(`INSERT INTO users (email, password, role) VALUES (?,?,?)`, [email, password, role='guest'] );
 
 export default {
     findOneByEmail,

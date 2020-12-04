@@ -4,7 +4,7 @@ const findOne = async (id: number, token: string) => Query(`SELECT * FROM tokens
 
 const insert = async (userid: number) => Query(`INSERT INTO tokens (userid) VALUES (${userid})`);
 
-const update = async (id: number, token: string) => Query(`UPDATE tokens SET token = '${token}' WHERE id = ${id}'`);
+const update = async (id: number, token: string) => Query(`UPDATE tokens SET token = '${token}' WHERE id = '${id}'`);
 
 export default {
     findOne,
