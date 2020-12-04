@@ -11,6 +11,11 @@ const App: React.FC<IAppProps> = () => {
     <Router>
       {/* <NavBar/> */}
         <div><h1><u>LOCAL HOST</u></h1></div>
+        <Link to={`/`}>
+        <button className="btn btn-sm btn-outline-info rounded-pill">
+          Home
+        </button>
+      </Link>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/restaurants" component={Restaurants} />
