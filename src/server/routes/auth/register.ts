@@ -1,7 +1,7 @@
 import * as express from 'express';
 import db from '../../db'
-import { HashPassword } from '../../db/utility/security/passwords'
-import { CreateToken } from '../../db/utility/security/tokens'
+import { HashPassword } from '../../utility/security/passwords'
+import { CreateToken } from '../../utility/security/tokens'
 
 const router = express.Router();
 

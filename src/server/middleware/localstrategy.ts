@@ -1,7 +1,7 @@
 import * as passport from 'passport';
 import * as LocalStrategy from 'passport-local';
 
-import { ComparePassword } from '../db/utility/security/passwords';
+import { ComparePassword } from '../utility/security/passwords';
 import db from '../db';
 import { createParenthesizedType } from 'typescript';
 
