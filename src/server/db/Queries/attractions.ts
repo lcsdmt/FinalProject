@@ -6,7 +6,6 @@ const findOneById = async (id: any) => Query(`SELECT * FROM attractions WHERE id
 const allAttractions = async () => Query(`SELECT * FROM attractions`);
 
 export default {
-
   findOneById, 
   allAttractions
 }
