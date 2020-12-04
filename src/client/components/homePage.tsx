@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home: React.FC = (props: HomeProps) => {
   return (
     <div>
-      <div><p>MISSION STATMENT - find better non bootstrap styles for buttons and background</p></div>
+      <div className="text-center"><p>MISSION STATMENT - find better non bootstrap styles for buttons and background</p></div>
       <div className="d-flex justify-content-around">
         <Link to={`/restaurants`}>
           <button className="btn btn-sm btn-outline-info rounded-pill">
