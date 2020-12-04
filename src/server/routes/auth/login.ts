@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as passport from 'passport';
 
-import { CreateToken } from '../../db/utility/security/tokens';
+import { CreateToken } from '../../utility/security/tokens';
 
 const router = express.Router();
 interface ReqUser extends express.Request {
