@@ -9,14 +9,14 @@ import Attractions from "./components/attractionsPage"
 const App: React.FC<IAppProps> = () => {
   return (
     <Router>
-      {/* <NavBar/> */}
-        <div><h1><u>LOCAL HOST</u></h1></div>
-        <Link to={`/`}>
+      <NavBar/>
+        
+        {/* <Link to={`/`}>
         <button className="btn btn-sm btn-outline-info rounded-pill">
           Home
         </button>
-      </Link>
-      <Switch>
+      </Link> */}
+      <Switch> 
         <Route exact path="/" component={Home} />
         <Route exact path="/restaurants" component={Restaurants} />
         <Route exact path="/bars" component={Bars} />
