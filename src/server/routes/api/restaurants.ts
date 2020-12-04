@@ -20,7 +20,7 @@ const isAdmin: express.RequestHandler = (req: ReqUser, res, next) => {
     }
 };
 
-router.get('/:id?', isAdmin, async (req, res) => {
+router.get('/:id?', async (req, res) => {
     console.log('works')
     let id = req.params.id
     if (id) {
