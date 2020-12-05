@@ -5,6 +5,8 @@ import spinner from "../utils/spinner";
 const SingleBar: React.FC = (props) => {
   const [bar, setBar] = useState<iBars>({});
   const [hours, setHours] = useState<Array<any>>([]);
+  // const [photosR, setPhotosR] = useState<Array<any>>([]);
+  // const [photos, setPhotos] = useState<Array<any>>([]);
   const [ifOpen, setIfOpen] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +24,9 @@ const SingleBar: React.FC = (props) => {
             setBar(data.result);
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
+            // setPhotosR(data.result.photos.photo_reference);
+            // fetch(url + `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photosR.photo_reference}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`)
+            // .then((photo)=>{setPhotos([photo])});
             setLoading(false);
           } else {
             return;

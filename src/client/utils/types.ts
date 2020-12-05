@@ -26,8 +26,8 @@ export interface iBars {
   rating: number;
   business_status: string;
   vicinity: string;
-  photos?: string;
   place_id: string;
+  photos: {photo_reference: Array<any>};
 }
 
 export interface iAttractions {
