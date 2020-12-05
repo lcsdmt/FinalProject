@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { iBars } from "../utils/types";
+import spinner from "../utils/spinner";
 
 const SingleBar: React.FC = (props) => {
   const [bar, setBar] = useState<iBars>({});
   const [hours, setHours] = useState<Array<any>>([]);
   const [ifOpen, setIfOpen] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const fetchBar = async () => {
     try {
@@ -20,6 +22,7 @@ const SingleBar: React.FC = (props) => {
             setBar(data.result);
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
+            setLoading(false);
           } else {
             return;
           }
@@ -34,28 +37,32 @@ const SingleBar: React.FC = (props) => {
     fetchBar();
   }, []);
 
-  return (
-    <>
-      <div className="card">
-        <div className="card-body shadow">
-          {/* <h5>{bar.photos}</h5> */}
-          <h5>
-            <u>{bar.name}</u>
-          </h5>
-          <p>{bar.description}</p>
-          <h5 className="text-info">{bar.formatted_phone_number}</h5>
-          <h5>{bar.formatted_address}</h5>
-          <a href={bar.website}>{bar.website}</a>
-          <br />
-          <a href={bar.url}>{bar.url}</a>
-          <h5>Google User Rating:{bar.rating}</h5>
-          {hours.map((hour) => (
-            <h6>{hour}</h6>
-          ))}
+  if (loading) {
+    return spinner();
+  } else {
+    return (
+      <>
+        <div className="card">
+          <div className="card-body shadow">
+            {/* <h5>{bar.photos}</h5> */}
+            <h5>
+              <u>{bar.name}</u>
+            </h5>
+            <p>{bar.description}</p>
+            <h5 className="text-info">{bar.formatted_phone_number}</h5>
+            <h5>{bar.formatted_address}</h5>
+            <a href={bar.website}>{bar.website}</a>
+            <br />
+            <a href={bar.url}>{bar.url}</a>
+            <h5>Google User Rating:{bar.rating}</h5>
+            {hours.map((hour) => (
+              <h6>{hour}</h6>
+            ))}
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </>
+    );
+  }
 };
 
 interface BarProps {

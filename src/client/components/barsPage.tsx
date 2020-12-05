@@ -10,7 +10,6 @@ const Bars: React.FC = (props: BarsProps) => {
     try {
       const data = await fetch("/api/bars");
       const dbBars = await data.json();
-
       dbBars.forEach(bar => dbBarsInfo.push({barID: bar.place_id, description: bar.description}));
       setBarsInfo([...dbBarsInfo]);
     } catch (err) {
