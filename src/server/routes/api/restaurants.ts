@@ -28,7 +28,7 @@ router.get('/:id?', isAdmin, async (req, res) => {
             res.json((await db.Restaurants.findOneById(id))[0]);
         } catch (err) {
             console.log(err);
-            res.sendStatus(500);
+            res.send("Oops, Looks like you'll need to register an account to proceed!").status(500);
         }
     } else {
         try {

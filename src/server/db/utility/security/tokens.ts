@@ -9,9 +9,8 @@ export const CreateToken = async (payload: IPayload) => {
     payload.accesstokenid = tokenid.insertId;
     payload.unique = crypto.randomBytes(32).toString('hex');
     let token = await jwt.sign(payload, config.auth.secret)
-    //console.log("This is token", token);
+    //change this line ^
     await db.AccessTokens.update(payload.accesstokenid, token);
-    // await db.AccessTokens.update(payload.userid);
     return token;
 }
 
@@ -22,6 +21,7 @@ export const ValidToken = async (token: string) => {
         throw new Error('Invalid Token!');
     } else {
         return payload;
+        //change this line ^
     }
 }
 
@@ -30,3 +30,4 @@ export interface IPayload {
     userid: number;
     unique?: string;
 }
+
