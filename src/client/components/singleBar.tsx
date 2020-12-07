@@ -38,7 +38,9 @@ const SingleBar: React.FC = (props) => {
       console.log(error);
     }
   };
-
+function myFunction(x) {
+  window.open(x);
+}
   useEffect(() => {
     fetchBar();
   }, []);
@@ -57,9 +59,9 @@ const SingleBar: React.FC = (props) => {
             <p>{bar.description}</p>
             <h5 className="text-info">{bar.formatted_phone_number}</h5>
             <h5>{bar.formatted_address}</h5>
-            <a href={bar.website}>{bar.website}</a>
+            <button onClick={() => window.open(bar.website)}>{bar.website}</button>
             <br />
-            <a href={bar.url}>{bar.url}</a>
+            <button onClick={() => window.open(bar.url)}>Directions to: {bar.name}</button>
             <h5>Google User Rating:{bar.rating}</h5>
             {hours.map((hour) => (
               <h6 key= {uuid()}>{hour}</h6>

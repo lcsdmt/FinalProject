@@ -52,11 +52,12 @@ const SingleRestaurant: React.FC = (props: SRprops) => {
             <p>{restaurant.description}</p>
             <h5 className="text-info">{restaurant.formatted_phone_number}</h5>
             <h5>{restaurant.formatted_address}</h5>
-            <a href={restaurant.website}>{restaurant.website}</a>
+            <button onClick={() => window.open(restaurant.website)}>{restaurant.website}</button>
             <br />
-            <a href={restaurant.url}>{restaurant.url}</a>
+            <button onClick={() => window.open(restaurant.url)}>Directions to: {restaurant.name}</button>
+            {/* <a href={restaurant.url}>{restaurant.url}</a> */}
             <h5>Google User Rating:{restaurant.rating}</h5>
-            {hours.map((hour,key) => (
+            {hours.map((hour, key) => (
               <h6 key= {uuid()}>{hour}</h6>
             ))}
           </div>

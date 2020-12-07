@@ -14,13 +14,20 @@ const SingleAttraction: React.FC = (props) => {
       const url = "https://cors-anywhere.herokuapp.com/";
       await fetch(
         url +
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.place.placeID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
+        `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.place.placeID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
       )
         .then((res) => res.json())
         .then((data) => {
           if (data.result) {
+            // let weekdayText = data.result.opening_hours.weekday_text;
             data.result.description = props.place.description;
             setAttraction(data.result);
+            // if (weekdayText = undefined) {
+            //   weekdayText.value = 'Information currently unavailable';
+            //   setHours(weekdayText.value)
+            // } else {
+
+            // }
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
             setLoading(false);
@@ -52,12 +59,12 @@ const SingleAttraction: React.FC = (props) => {
             <p>{attraction.description}</p>
             <h5 className="text-info">{attraction.formatted_phone_number}</h5>
             <h5>{attraction.formatted_address}</h5>
-            <a href={attraction.website}>{attraction.website}</a>
+            <button onClick={() => window.open(attraction.website)}>{attraction.website}</button>
             <br />
-            <a href={attraction.url}>{attraction.url}</a>
+            <button onClick={() => window.open(attraction.url)}>Directions to: {attraction.name}</button>
             <h5>Google User Rating:{attraction.rating}</h5>
             {hours.map((hour) => (
-              <h6 key= {uuid()}>{hour}</h6>
+              <h6 key={uuid()}>{hour}</h6>
             ))}
           </div>
         </div>

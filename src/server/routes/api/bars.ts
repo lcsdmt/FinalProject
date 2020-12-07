@@ -14,7 +14,7 @@ interface ReqUser extends express.Request {
 
 const isAdmin: express.RequestHandler = (req: ReqUser, res, next) => {
     if (!req.user || req.user.role !== 'guest') {
-        return res.send("Oops, Looks like you'll need to register an account to proceed!").status(500);
+        return res.status(401).send("Oops, looks like you'll need to login to proceed!");
     } else {
         return next();
     }
