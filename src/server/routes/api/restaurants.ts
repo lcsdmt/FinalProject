@@ -13,7 +13,7 @@ interface ReqUser extends express.Request {
 }
 
 const isAdmin: express.RequestHandler = (req: ReqUser, res, next) => {
-    if (!req.user || req.user.role !== 'admin') {
+    if (!req.user || req.user.role !== 'guest') {
         return res.sendStatus(401);
     } else {
         return next();
@@ -39,4 +39,5 @@ router.get('/:id?', isAdmin, async (req, res) => {
         }
     }
 });
+
 export default router

@@ -5,7 +5,6 @@ import barRouter from './bars'
 import attractionRouter from './attractions'
 
 const router = express.Router();
-
 router.use('/restaurants', restaurantRouter);
 router.use('/bars', barRouter);
 router.use('/attractions', attractionRouter);

@@ -1,63 +1,33 @@
-import * as React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import NavBar from "./components/navBar"
+import Home from "./components/homePage";
+import Restaurants from "./components/restaurantsPage";
+import Bars from "./components/barsPage";
+import Attractions from "./components/attractionsPage"
+import User from "./components/userPage";
 
-class App extends React.Component<IAppProps, IAppState> {
-	constructor(props: IAppProps) {
-		super(props);
-		this.state = {
-			name: null
-		};
-	}
+const App: React.FC<IAppProps> = () => {
+  return (
+    <Router>
+      <NavBar/>
+        
+        {/* <Link to={`/`}>
+        <button className="btn btn-sm btn-outline-info rounded-pill">
+          Home
+        </button>
+      </Link> */}
+      <Switch> 
+        <Route exact path="/" component={Home} />
+        <Route exact path="/restaurants" component={Restaurants} />
+        <Route exact path="/bars" component={Bars} />
+        <Route exact path="/attractions" component={Attractions} />
+        <Route exact path="/user/:id" component={User} />
+      </Switch>
+    </Router>
+  );
+};
 
-	async componentDidMount() {
-		try {
-			let r = await fetch('/api/hello');
-			let name = await r.json();
-			this.setState({ name });
-		} catch (error) {
-			console.log(error);
-		}
-	}
-
-	render() {
-		return (
-			<main className="container my-5">
-				<h1 className="text-primary text-center">Hello {this.state.name}!</h1>
-			</main>
-		);
-	}
-}
-
-export interface IAppProps {}
-
-export interface IAppState {
-	name: string;
-}
+interface IAppProps {}
 
 export default App;
-
-//
-// const App = (props: AppProps) => {
-// 	const [greeting, setGreeting] = React.useState<string>('');
-
-// 	React.useEffect(() => {
-// 		(async () => {
-// 			try {
-// 				const res = await fetch('/api/hello');
-// 				const greeting = await res.json();
-// 				setGreeting(greeting);
-// 			} catch (error) {
-// 				console.log(error);
-// 			}
-// 		})();
-// 	}, []);
-
-// 	return (
-// 		<div className="min-vh-100 d-flex justify-content-center align-items-center">
-// 			<h1 className="display-1">Hello {greeting}!</h1>
-// 		</div>
-// 	);
-// };
-
-// interface AppProps {}
-
-// export default App;
