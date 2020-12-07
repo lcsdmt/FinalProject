@@ -21,7 +21,6 @@ const SingleAttraction: React.FC = (props) => {
           if (data.result) {
             data.result.description = props.place.description;
             setAttraction(data.result);
-            if(data.result.opening_hours.weekday_text
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
             setLoading(false);
