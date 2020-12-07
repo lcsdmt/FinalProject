@@ -9,8 +9,15 @@ const User: React.FC = (props: UserProps) => {
 
 
   return (
+//     if (loggedIn) {
+//       return (
+// <div> Hello </div>
+//       )
+//     }
+//     else
+     
     <>
-      <h1><userInfo></userInfo></h1>
+      {/* <h1><userInfo></userInfo></h1> */}
       <br></br>
       <h1>Favorite Restuarants</h1>
       <br></br>
@@ -18,7 +25,7 @@ const User: React.FC = (props: UserProps) => {
       <br></br>
       <h1>Favorite Attractions</h1>
     </>
-  );
+    );
 };
 
 interface UserProps { }

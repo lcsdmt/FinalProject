@@ -11,12 +11,6 @@ const App: React.FC<IAppProps> = () => {
   return (
     <Router>
       <NavBar/>
-        
-        {/* <Link to={`/`}>
-        <button className="btn btn-sm btn-outline-info rounded-pill">
-          Home
-        </button>
-      </Link> */}
       <Switch> 
         <Route exact path="/" component={Home} />
         <Route exact path="/restaurants" component={Restaurants} />

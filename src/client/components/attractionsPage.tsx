@@ -1,6 +1,7 @@
 import * as React from "react";
 import { iAttractions } from "../utils/types";
 import SingleAttraction from "./singleAttraction";
+import uuid from "react-uuid";
 
 const Attractions: React.FC = (props: AttractionsProps) => {
   let dbAttractionsInfo = [];
@@ -22,7 +23,7 @@ const Attractions: React.FC = (props: AttractionsProps) => {
     fetchAttractions();
   }, []);
 
-  return places.map((place, index) => <SingleAttraction place={place} key={index} />);
+  return places.map((place, index) => <SingleAttraction place={place} key= {uuid()} />);
 };
 
 interface AttractionsProps {}

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { iRestaurants } from "../utils/types";
+import spinner from "../utils/spinner";
+import uuid from "react-uuid";
 
-const SingleRestaurant: React.FC = (props) => {
+const SingleRestaurant: React.FC = (props: SRprops) => {
   const [restaurant, setRestaurant] = useState<iRestaurants>({});
   const [hours, setHours] = useState<Array<any>>([]);
   const [ifOpen, setIfOpen] = useState({});
-  //   console.log(props.hey);
+  const [loading, setLoading] = useState(true);
 
   const fetchRestaurant = async () => {
     try {
@@ -21,6 +23,7 @@ const SingleRestaurant: React.FC = (props) => {
             setRestaurant(data.result);
             setHours(data.result.opening_hours.weekday_text);
             setIfOpen(data.result.opening_hours.open_now);
+            setLoading(false);
           } else {
             return;
           }
@@ -35,31 +38,35 @@ const SingleRestaurant: React.FC = (props) => {
     fetchRestaurant();
   }, []);
 
-  return (
-    <>
-      <div className="card">
-        <div className="card-body shadow">
-          {/* <h5>{restaurant.photos}</h5> */}
-          <h5>
-            <u>{restaurant.name}</u>
-          </h5>
-          <p>{restaurant.description}</p>
-          <h5 className="text-info">{restaurant.formatted_phone_number}</h5>
-          <h5>{restaurant.formatted_address}</h5>
-          <a href={restaurant.website}>{restaurant.website}</a>
-          <br />
-          <a href={restaurant.url}>{restaurant.url}</a>
-          <h5>Google User Rating:{restaurant.rating}</h5>
-          {hours.map((hour) => (
-            <h6>{hour}</h6>
-          ))}
+  if (loading) {
+    return spinner();
+  } else {
+    return (
+      <React.Fragment>
+        <div className="card">
+          <div className="card-body shadow">
+            {/* <h5>{restaurant.photos}</h5> */}
+            <h5>
+              <u>{restaurant.name}</u>
+            </h5>
+            <p>{restaurant.description}</p>
+            <h5 className="text-info">{restaurant.formatted_phone_number}</h5>
+            <h5>{restaurant.formatted_address}</h5>
+            <a href={restaurant.website}>{restaurant.website}</a>
+            <br />
+            <a href={restaurant.url}>{restaurant.url}</a>
+            <h5>Google User Rating:{restaurant.rating}</h5>
+            {hours.map((hour,key) => (
+              <h6 key= {uuid()}>{hour}</h6>
+            ))}
+          </div>
         </div>
-      </div>
-    </>
-  );
+      </React.Fragment>
+    );
+  }
 };
 
-interface RestaurantProps {
+interface SRprops {
   id: any;
 }
 
