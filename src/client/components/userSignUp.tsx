@@ -1,25 +1,51 @@
+import { Handler } from "express";
 import * as React from "react";
+import { useState, useEffect } from "react"
 
-export class Usersignup extends React.Component<{}, {}> {
-    constructor(props: {}) {
-        super(props)
-}
+const Usersignup: React.FC = (props) => {
 
-    handleSubmit(e: any) {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    let handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        let res = await fetch("/auth/register/",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": ""
+                },
+                body: JSON.stringify({ email, password })
+            }
+        )
+
+        if (res.ok) {
+            console.log(res)
+        } else {
+            console.log("Something went wrong")
+        }
     }
-    render(){ 
-    return(
-     <div>
-        <h1>Login Page</h1>
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-            <input type="text" placeholder="Username" />
-            <button type="submit">Login</button></form>
-            <form onSubmit={(e) => this.handleSubmit(e)}>
-            <input type="text" placeholder="Password" />
-            <button type="submit">Login</button></form>
-    </div>
+
+    return (
+        <>
+            <div>
+                <h1>Signup Page</h1>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                    <input type="text" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                    <button type="submit">Signup</button></form>
+            </div>
+        </>
     )
-    }
+
 }
+
+export interface ISignUpState {
+    email: string,
+    password: string
+};
+
+export default Usersignup;
+
 //if/else statement to signup/signin + login via singleclick that doesn't get sent to console
