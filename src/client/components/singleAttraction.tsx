@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { iAttractions } from "../utils/types";
 import spinner from "../utils/spinner";
+import uuid from "react-uuid";
 
 const SingleAttraction: React.FC = (props) => {
   const [attraction, setAttraction] = useState<iAttractions>({});
@@ -56,7 +57,7 @@ const SingleAttraction: React.FC = (props) => {
             <a href={attraction.url}>{attraction.url}</a>
             <h5>Google User Rating:{attraction.rating}</h5>
             {hours.map((hour) => (
-              <h6>{hour}</h6>
+              <h6 key= {uuid()}>{hour}</h6>
             ))}
           </div>
         </div>

@@ -15,6 +15,8 @@ const App: React.FC<IAppProps> = () => {
         <Route exact path="/restaurants" component={Restaurants} />
         <Route exact path="/bars" component={Bars} />
         <Route exact path="/attractions" component={Attractions} />
+        {/* <Route exact path="/signup" component={SignUp} /> */}
+        {/* <Route exact path="/user/:id" component={UserProfile} /> */}
       </Switch>
     </Router>
   );

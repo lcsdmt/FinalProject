@@ -1,7 +1,7 @@
 import * as React from "react";
 import { iRestaurants } from "../utils/types";
 import SingleRestaurant from "./singleRestaurant";
-
+import uuid from "react-uuid";
 
 
 const Restaurants: React.FC = (props: RestaurantsProps) => {
@@ -27,7 +27,7 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
   }, []);
 
   
-return places.map((place: any, id: any) => <SingleRestaurant key={id} place={place}  />);
+return places.map((place: any, id: any) => <SingleRestaurant key={uuid()} place={place}  />);
 };
 
 interface RestaurantsProps {}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { iRestaurants } from "../utils/types";
 import spinner from "../utils/spinner";
+import uuid from "react-uuid";
 
 const SingleRestaurant: React.FC = (props: SRprops) => {
   const [restaurant, setRestaurant] = useState<iRestaurants>({});
@@ -41,7 +42,7 @@ const SingleRestaurant: React.FC = (props: SRprops) => {
     return spinner();
   } else {
     return (
-      <React.Fragment key={props.id}>
+      <React.Fragment>
         <div className="card">
           <div className="card-body shadow">
             {/* <h5>{restaurant.photos}</h5> */}
@@ -55,8 +56,8 @@ const SingleRestaurant: React.FC = (props: SRprops) => {
             <br />
             <a href={restaurant.url}>{restaurant.url}</a>
             <h5>Google User Rating:{restaurant.rating}</h5>
-            {hours.map((hour) => (
-              <h6>{hour}</h6>
+            {hours.map((hour,key) => (
+              <h6 key= {uuid()}>{hour}</h6>
             ))}
           </div>
         </div>

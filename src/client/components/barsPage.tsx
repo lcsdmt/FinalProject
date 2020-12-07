@@ -1,6 +1,7 @@
 import * as React from "react";
 import { iBars } from "../utils/types";
 import SingleBar from "./singleBar";
+import uuid from "react-uuid";
 
 const Bars: React.FC = (props: BarsProps) => {
   let dbBarsInfo = [];
@@ -21,7 +22,7 @@ const Bars: React.FC = (props: BarsProps) => {
     fetchBars();
   }, []);
 
-  return barIDs.map((bar, index) => <SingleBar bar={bar} key={index} />);
+  return barIDs.map((bar, index) => <SingleBar bar={bar} key= {uuid()} />);
 };
 
 interface BarsProps {}

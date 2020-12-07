@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { iBars } from "../utils/types";
 import spinner from "../utils/spinner";
+import uuid from "react-uuid";
 
 const SingleBar: React.FC = (props) => {
   const [bar, setBar] = useState<iBars>({});
@@ -61,7 +62,7 @@ const SingleBar: React.FC = (props) => {
             <a href={bar.url}>{bar.url}</a>
             <h5>Google User Rating:{bar.rating}</h5>
             {hours.map((hour) => (
-              <h6>{hour}</h6>
+              <h6 key= {uuid()}>{hour}</h6>
             ))}
           </div>
         </div>
