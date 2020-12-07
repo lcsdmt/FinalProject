@@ -9,9 +9,12 @@ const Attractions: React.FC = (props: AttractionsProps) => {
 
   const fetchAttractions = async () => {
     try {
-      const data = await fetch("/api/attractions");
+      const data = await fetch("/api/attractions", {
+        headers:{
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjMyLCJhY2Nlc3N0b2tlbmlkIjozMywidW5pcXVlIjoiN2Q5YjIwYzg0MTZhNmZmMTQxMGM4YzYzMTE3YTUxNDQxMDc0MDZmODQ1MDY3ZGNhNWQyNzhkNWQ2MDIxZDE3YyIsImlhdCI6MTYwNzM2ODEzMX0.XmHGinHdeLE_3nnwHdaFnCgEuDP-i-dDIayzT1Umwsw"
+        }
+      });
       const dbAttractions = await data.json();
-
       dbAttractions.forEach((place) => dbAttractionsInfo.push({placeID: place.place_id, description: place.description}));
       setPlaces([...dbAttractionsInfo]);
     } catch (err) {

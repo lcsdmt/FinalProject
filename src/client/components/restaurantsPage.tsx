@@ -12,7 +12,12 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
   const fetchRestaurants = async () => {
     
     try {
-      const data = await fetch("/api/restaurants");
+      const data = await fetch("/api/restaurants", {
+        headers:{
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjMyLCJhY2Nlc3N0b2tlbmlkIjozMywidW5pcXVlIjoiN2Q5YjIwYzg0MTZhNmZmMTQxMGM4YzYzMTE3YTUxNDQxMDc0MDZmODQ1MDY3ZGNhNWQyNzhkNWQ2MDIxZDE3YyIsImlhdCI6MTYwNzM2ODEzMX0.XmHGinHdeLE_3nnwHdaFnCgEuDP-i-dDIayzT1Umwsw"
+        }
+
+      });
       const dbPlaces = await data.json();
       dbPlaces.forEach((place) => dbPlacesInfo.push({placeID: place.place_id, description: place.description}));
       setPlaces([...dbPlacesInfo]);
