@@ -7,6 +7,11 @@ import RestaurantTags from './restaurantfavorites'
 import Users from './auth/users';
 import AccessTokens from './auth/accesstokens';
 import RestaurantFavorites from './restaurantfavorites';
+import BarFavorites from './barfavorites';
+import AttractionFavorites from './attractionfavorites';
+
+
+
 
 export const pool = mysql.createPool(config.mysql);
 
@@ -25,5 +30,7 @@ export default {
   RestaurantTags,
   Users,
   AccessTokens,
-  RestaurantFavorites
+  RestaurantFavorites,
+  BarFavorites,
+  AttractionFavorites
 };
