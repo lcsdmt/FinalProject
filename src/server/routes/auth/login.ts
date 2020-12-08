@@ -24,6 +24,7 @@ router.post('/', passport.authenticate('local'), async (req: ReqUser, res, next)
             role: req.user.role,
             userid: req.user.id
         })
+        // sessionStorage.setItem("AUTH_TOKEN", token);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);

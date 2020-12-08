@@ -6,7 +6,8 @@ import Restaurants from "./components/restaurantsPage";
 import Bars from "./components/barsPage";
 import Attractions from "./components/attractionsPage"
 import User from "./components/userPage";
-import Login from "./components/userSignUp"
+import Signup from "./components/userSignUp"
+import UserLogin from "./components/login"
 
 const App: React.FC<IAppProps> = () => {
   return (
@@ -17,7 +18,8 @@ const App: React.FC<IAppProps> = () => {
         <Route exact path="/restaurants" component={Restaurants} />
         <Route exact path="/bars" component={Bars} />
         <Route exact path="/attractions" component={Attractions} />
-        <Route exact path="/Signup" component={Login} />
+        <Route exact path="/Signup" component={Signup} />
+        <Route exact path="/login" component={UserLogin} />
         <Route exact path="/user/:id" component={User} />
       </Switch>
     </Router>

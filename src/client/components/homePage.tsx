@@ -1,9 +1,16 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, Fragment } from "react";
+import { Link, useHistory } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { checkLogin } from "../requests/request";
 
 const Home: React.FC = (props: HomeProps) => {
+  const hist = useHistory();
+  useEffect (() => {
+    if (!checkLogin()) {
+      hist.push("/login");
+    }
+  })
   return (
     <div id="Bodystuff" style={{ display: 'flex', flexDirection: 'row' }}>
       <Card style={{ width: '25rem' }}>

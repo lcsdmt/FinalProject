@@ -2,36 +2,26 @@ import * as React from "react";
 import { iBars } from "../utils/types";
 import SingleBar from "./singleBar";
 import uuid from "react-uuid";
+import { getData } from "../requests/request";
 
 const Bars: React.FC = (props: BarsProps) => {
   let dbBarsInfo = [];
   const [barIDs, setBarsInfo] = React.useState<iBars[]>([]);
 
   const fetchBars = async () => {
-    try {
-      const data = await fetch("/api/bars", {
-        headers:{
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjMxLCJhY2Nlc3N0b2tlbmlkIjozMiwidW5pcXVlIjoiZGMxNjRlNTI3ZDZhNDcxYTNlZDIzNDhhODUzMjY3NTlhOWFlOTYwYTk4YWY2MDkzM2QxYTQ1ZTNlOTc3MjdlNCIsImlhdCI6MTYwNzM2Nzg1MH0.fcEwkexCgwdEAfBmNO1YVt_CtiU98SuMgUpk9bl8760",
-        
-          "Access-Control-Allow-Origin": "localhost:3000"
-        }
-
-      });
-      const dbBars = await data.json();
-      dbBars.forEach(bar => dbBarsInfo.push({barID: bar.place_id, description: bar.description}));
-      setBarsInfo([...dbBarsInfo]);
-    } catch (err) {
-      console.error(err);
-    }
+    let dbBars: any = [];
+    let path = "/api/bars";
+    await getData(path).then(data => {
+      dbBars = data
+    }).catch(err => console.error(err));
+    dbBars.forEach(bar => dbBarsInfo.push({ barID: bar.place_id, description: bar.description }));
+    setBarsInfo([...dbBarsInfo]);
   };
-
   React.useEffect(() => {
     fetchBars();
   }, []);
-
-  return barIDs.map((bar, index) => <SingleBar bar={bar} key= {uuid()} />);
+  return barIDs.map((bar, index) => <SingleBar bar={bar} key={uuid()} />);
 };
 
-interface BarsProps {}
-
+interface BarsProps { }
 export default Bars;

@@ -2,9 +2,10 @@ import { Handler } from "express";
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 const Usersignup: React.FC = (props) => {
-
+    const hist = useHistory();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -19,12 +20,13 @@ const Usersignup: React.FC = (props) => {
                 },
                 body: JSON.stringify({ email, password })
             }
-
         )
-
         if (res.ok) {
-            alert("Profile Successfully Created!");
-            console.log(res)
+            // alert("Profile Successfully Created!");
+            console.log(res);
+            hist.push("/");
+            location.reload();
+            alert("Profile Created!");
         } else {
             console.log("Something went wrong")
         }
