@@ -5,11 +5,13 @@ const NavBar: React.FC = (props: NavBarProps) => {
 
   const authBtn = () => {
     if (checkLogin()) {
-      return <li className="nav-item"><Link className="nav-link" to="" onClick={logout}>Logout</Link></li>
+      return <li className="nav-item"><Link className="nav-link" to="" onClick={logout}>Sign Out</Link></li>
     } else {
-      return <li className="nav-item">
-        <Link className="nav-link" to="/login">Login</Link>
-      </li>
+      return <ul className="nav-item">
+        <li>
+          <Link className="nav-link" to="/Signup">Sign Up</Link>
+        </li>
+      </ul >
     }
   }
   return (
@@ -36,7 +38,7 @@ const NavBar: React.FC = (props: NavBarProps) => {
 
 
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="/"><strong>IRON SIGHTS</strong></a>
+      <a className="navbar-brand" href="/"><strong>Local Host</strong></a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -47,9 +49,6 @@ const NavBar: React.FC = (props: NavBarProps) => {
           </li>
           <li className="nav-item">
             <a className="nav-link" href="/user/id">In My Sights</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/Signup">Create Profile</a>
           </li>
           {authBtn()}
         </ul>

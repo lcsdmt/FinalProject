@@ -57,4 +57,5 @@ export function logout() {
         sessionStorage.removeItem("AUTH_TOKEN");
         sessionStorage.removeItem("LOGGED_IN_USER");
     }
+    location.reload();
 }
