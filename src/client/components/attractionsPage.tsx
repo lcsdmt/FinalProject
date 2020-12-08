@@ -25,7 +25,7 @@ const Attractions: React.FC = (props: AttractionsProps) => {
   React.useEffect(() => {
     fetchAttractions();
   }, []);
-  return places.map((place, index) => <SingleAttraction place={place} key= {uuid()} />);
+  return places.map((place, index) => <SingleAttraction place={place} key={uuid()} />);
 };
 interface AttractionsProps {}
 
