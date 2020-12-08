@@ -31,7 +31,7 @@ router.get('/:userid', isAdmin, async (req, res) => {
       currentRestaurant[0].id = restaurant.id;
     })
 
-    console.log(favorites) // []
+    console.log(favorites) 
 
     res.json(favorites);
   } catch (err) {
