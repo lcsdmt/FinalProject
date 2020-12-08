@@ -1,11 +1,9 @@
-$theme-colors: (
-    'primary': #0091ea //Covalence Blue!  :D
-);
-
-
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+// $theme-colors: (
+//     'primary': #0091ea //Covalence Blue!  :D
+// );
 
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/bootstrap";
 
 html,
 body {
@@ -17,14 +15,15 @@ body {
 body {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: lighter;
+  background: url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fkarlaalindahao%2Ffiles%2F2019%2F05%2FThe-Apparatus-Room-Detroit_Best-Restaurants-for-a-Big-Night-Out-2019_OpenTable-1200x800.jpg)
+  no-repeat 75% 75%;
+background-size: cover;
+backdrop-filter: blur(4px);
 }
 
 header {
   width: 100%;
-  height: 100vh;
-  background: url(https://dcist.com/wp-content/uploads/sites/3/2020/05/200316_DC_empty_restaurants_Turner_02-1500x1000.jpg)
-    no-repeat 75% 75%;
-  background-size: cover;
+  height: 10vh;
 }
 
 .content {
@@ -37,26 +36,27 @@ header {
 
 .logo {
 //   line-height: 875px;
-align-items: center;
-margin-top: 15;
-  margin-left: 70;
+
   position: fixed;
   float: left;
   color: #fff;
   font-weight: bold;
-  font-size: 35;
+  font-size: 35px;
   letter-spacing: 2px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+.nav-link {
+  margin-left: 150px;
+}
 nav {
-  position: fixed;
-  width: 100%;
-  line-height: 60px;
+  height: 50px;
+  background-color: rgba(32,32,32,.6)
 }
 
+
 nav ul {
-  line-height: 60px;
+  line-height: 30px;
   list-style: none;
   background: rgba(0, 0, 0, 0);
   overflow: hidden;
@@ -74,7 +74,9 @@ nav.black ul {
 
 nav ul li {
   display: inline-block;
-  padding: 16px 40px;
+  margin-left: 70px;
+  padding: 0px;
+  word-spacing: 0%;
 }
 
 nav ul li a {
@@ -89,13 +91,19 @@ nav ul li a {
   background: #000;
   text-align: right;
   box-sizing: border-box;
-  padding: 15px 24px;
+  padding: 5px 5px;
   cursor: pointer;
   color: #fff;
   display: none;
 }
 
 @media (max-width: 786px) {
+
+  .navbar {
+    padding: 0.5em 1em !important;
+    float: left;
+  }
+  
   .logo {
     position: fixed;
     bottom: 0;
@@ -105,6 +113,7 @@ nav ul li a {
   nav ul {
     max-height: 0px;
     background: #000;
+    margin-left: 16px;
   }
 
   nav.black ul {
@@ -118,7 +127,7 @@ nav ul li a {
   nav ul li {
     box-sizing: border-box;
     width: 100%;
-    padding: 24px;
+    padding: 5px;
     text-align: center;
   }
 
@@ -126,4 +135,160 @@ nav ul li a {
     display: block;
   }
 }
+
+.menu {
+  float: right;
+  margin-right: 16px;
+  word-spacing: 10px;
+}
+
+
+#cardimg{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+
+#Bodystuff {
+padding: 2em;
+}
+
+.Card {
+  margin: 2em;
+  background-color: rgb(32,32,32);
+  color: white;
+  opacity: .85;
+  transition: 0.3s;
+  
+}
+
+.Card:hover {
+    opacity: 1;
+    transform:scale(1.05)
+  }
+
+
+// @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// html,
+// body {
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+// }
+
+// body {
+//   font-family: "Helvetica Neue", sans-serif;
+//   font-weight: lighter;
+// }
+
+// header {
+//   width: 100%;
+//   height: 100vh;
+//   background: url(https://dcist.com/wp-content/uploads/sites/3/2020/05/200316_DC_empty_restaurants_Turner_02-1500x1000.jpg)
+//     no-repeat 75% 75%;
+//   background-size: cover;
+// }
+
+// .content {
+//   width: 94%;
+//   margin: 4em auto;
+//   font-size: 20px;
+//   line-height: 30px;
+//   text-align: justify;
+// }
+
+// .logo {
+// //   line-height: 875px;
+// align-items: center;
+// margin-top: 15;
+//   margin-left: 70;
+//   position: fixed;
+//   float: left;
+//   color: #fff;
+//   font-weight: bold;
+//   font-size: 35;
+//   letter-spacing: 2px;
+//   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+// }
+
+// nav {
+//   position: fixed;
+//   width: 100%;
+//   line-height: 60px;
+// }
+
+// nav ul {
+//   line-height: 60px;
+//   list-style: none;
+//   background: rgba(0, 0, 0, 0);
+//   overflow: hidden;
+//   color: #fff;
+//   padding: 0;
+//   text-align: right;
+//   margin: 0;
+//   padding-right: 40px;
+//   // transition: 1s;
+// }
+
+// nav.black ul {
+//   background: rgb(0, 0, 0);
+// }
+
+// nav ul li {
+//   display: inline-block;
+//   padding: 16px 40px;
+// }
+
+// nav ul li a {
+//   text-decoration: none;
+//   color: #fff;
+//   font-size: 20px;
+// }
+
+// .menu-icon {
+//   line-height: 60px;
+//   width: 100%;
+//   background: #000;
+//   text-align: right;
+//   box-sizing: border-box;
+//   padding: 15px 24px;
+//   cursor: pointer;
+//   color: #fff;
+//   display: none;
+// }
+
+// @media (max-width: 786px) {
+//   .logo {
+//     position: fixed;
+//     bottom: 0;
+//     margin-top: 16px;
+//   }
+
+//   nav ul {
+//     max-height: 0px;
+//     background: #000;
+//   }
+
+//   nav.black ul {
+//     background: #000;
+//   }
+
+//   .showing {
+//     max-height: 34em;
+//   }
+
+//   nav ul li {
+//     box-sizing: border-box;
+//     width: 100%;
+//     padding: 24px;
+//     text-align: center;
+//   }
+
+//   .menu-icon {
+//     display: block;
+//   }
+// }
 
