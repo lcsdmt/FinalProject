@@ -6,7 +6,7 @@ import { getData } from "../requests/request";
 
 const Restaurants: React.FC = (props: RestaurantsProps) => {
   let dbRestaurantsInfo = [];
-  const [restaurantID, setRestaurantsInfo] = React.useState<iRestaurants[]>([]);
+  const [restaurantIDs, setRestaurantsInfo] = React.useState<iRestaurants[]>([]);
 
   const fetchRestaurants = async () => {
     let dbRestaurants: any = [];
@@ -20,7 +20,7 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
   React.useEffect(() => {
     fetchRestaurants();
   }, []);
-  return restaurantID.map((restaurant, index) => <SingleRestaurant restaurant={restaurant} key={uuid()} />);
+  return restaurantIDs.map((restaurant, index) => <SingleRestaurant restaurant={restaurant} key={uuid()} />);
 };
 
 interface RestaurantsProps { }
