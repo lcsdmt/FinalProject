@@ -1,4 +1,5 @@
-import { Query } from './index';
+import { Query } from '../index';
+
 
 
 const oneRestaurantTag = (restaurantsid: any) => Query(`call spRestaurantTags(?)`, [restaurantsid]);

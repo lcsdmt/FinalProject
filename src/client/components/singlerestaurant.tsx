@@ -71,6 +71,7 @@ const SingleRestaurant: React.FC = (props: SRprops) => {
 };
 
 interface SRprops {
+  place: any;
   id: any;
 }
 
