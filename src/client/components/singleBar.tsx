@@ -10,7 +10,6 @@ const SingleBar: React.FC = (props) => {
   // const [photos, setPhotos] = useState<Array<any>>([]);
   const [ifOpen, setIfOpen] = useState({});
   const [loading, setLoading] = useState(true);
-
   const fetchBar = async () => {
     try {
       const url = "https://cors-anywhere.herokuapp.com/";
@@ -44,7 +43,6 @@ function myFunction(x) {
   useEffect(() => {
     fetchBar();
   }, []);
-
   if (loading) {
     return spinner();
   } else {
@@ -72,7 +70,6 @@ function myFunction(x) {
     );
   }
 };
-
 interface BarProps {
   id: any;
 }

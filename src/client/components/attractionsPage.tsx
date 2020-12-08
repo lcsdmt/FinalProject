@@ -11,8 +11,7 @@ const Attractions: React.FC = (props: AttractionsProps) => {
     try {
       const data = await fetch("/api/attractions", {
         headers:{
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjMxLCJhY2Nlc3N0b2tlbmlkIjozMiwidW5pcXVlIjoiZGMxNjRlNTI3ZDZhNDcxYTNlZDIzNDhhODUzMjY3NTlhOWFlOTYwYTk4YWY2MDkzM2QxYTQ1ZTNlOTc3MjdlNCIsImlhdCI6MTYwNzM2Nzg1MH0.fcEwkexCgwdEAfBmNO1YVt_CtiU98SuMgUpk9bl8760",
-        
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjI0LCJhY2Nlc3N0b2tlbmlkIjoyOSwidW5pcXVlIjoiMDQ4NGM1N2ViZjI3MTNmOTdhN2E4M2Q0NzUyZjY4YTRkYTlkN2U5ODJhNTA5OGY2YTJmY2M1OTE1ODUyZmYyMyIsImlhdCI6MTYwNzM3OTcwMX0.PFvaoArpyPgia8DoCDesvMKY_v0r9cxfX6ZLGTUmo_k",
           "Access-Control-Allow-Origin": "localhost:3000"
         }
         });
@@ -23,14 +22,11 @@ const Attractions: React.FC = (props: AttractionsProps) => {
       console.error(err);
     }
   };
-
   React.useEffect(() => {
     fetchAttractions();
   }, []);
-
   return places.map((place, index) => <SingleAttraction place={place} key= {uuid()} />);
 };
-
 interface AttractionsProps {}
 
 export default Attractions;

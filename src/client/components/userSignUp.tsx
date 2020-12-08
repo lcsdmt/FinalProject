@@ -19,14 +19,12 @@ const Usersignup: React.FC = (props) => {
                 body: JSON.stringify({ email, password })
             }
         )
-
         if (res.ok) {
             console.log(res)
         } else {
             console.log("Something went wrong")
         }
     }
-
     return (
         <>
             <div>
@@ -38,9 +36,7 @@ const Usersignup: React.FC = (props) => {
             </div>
         </>
     )
-
 }
-
 export interface ISignUpState {
     email: string,
     password: string

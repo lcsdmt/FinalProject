@@ -40,7 +40,6 @@ const SingleAttraction: React.FC = (props) => {
       console.log(error);
     }
   };
-
   useEffect(() => {
     fetchAttraction();
   }, []);

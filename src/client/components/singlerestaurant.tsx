@@ -8,7 +8,6 @@ const SingleRestaurant: React.FC = (props: SRprops) => {
   const [hours, setHours] = useState<Array<any>>([]);
   const [ifOpen, setIfOpen] = useState({});
   const [loading, setLoading] = useState(true);
-
   const fetchRestaurant = async () => {
     try {
       const url = "https://cors-anywhere.herokuapp.com/";
@@ -33,11 +32,9 @@ const SingleRestaurant: React.FC = (props: SRprops) => {
       console.log(error);
     }
   };
-
   useEffect(() => {
     fetchRestaurant();
   }, []);
-
   if (loading) {
     return spinner();
   } else {
@@ -62,14 +59,11 @@ const SingleRestaurant: React.FC = (props: SRprops) => {
             ))}
             <button>Add to Fav</button>
           </div>
-
-
         </div>
       </React.Fragment>
     );
   }
 };
-
 interface SRprops {
   place: any;
   id: any;
