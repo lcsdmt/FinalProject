@@ -28,14 +28,12 @@ router.get('/:userid', isAdmin, async (req, res) => {
     let favIDs = await db.RestaurantFavorites.findFavIdbyUserId(req.params.id);
     let favorites = favIDs.map(async (restaurant) => {
       let currentRestaurant = await db.RestaurantFavorites.getOne(restaurant.restaurantid)
+      currentRestaurant[0].id = restaurant.id;
     })
 
     console.log(favorites) // []
 
-    res.json({
-      favIDs: favIDs[0],
-      favorites: favorites,
-    });
+    res.json(favorites);
   } catch (err) {
     console.log(err);
     res.sendStatus(500);

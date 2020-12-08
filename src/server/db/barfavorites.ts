@@ -9,7 +9,10 @@ join favorites on favorites.barsid = bars.id
 where favorites.barsid = ${barsid};
  `);
 
+ const deleteBarFavorite = (barsid: any) => Query(`delete from favorites WHERE barsid = ${barsid}`);
+
 export default {
   findFavIdbyUserId,
-  getOne
+  getOne,
+  deleteBarFavorite
 }
