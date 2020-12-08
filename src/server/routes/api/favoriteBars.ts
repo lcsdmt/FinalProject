@@ -31,7 +31,7 @@ router.get('/:userid', isAdmin, async (req, res) => {
       currentBar[0].id = bar.id;
     })
 
-    console.log(favorites) 
+    console.log(favorites)
 
     res.json(favorites);
   } catch (err) {

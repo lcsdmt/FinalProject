@@ -26,8 +26,8 @@ const isAdmin: RequestHandler = (req: ReqUser, res, next) => {
 router.get('/:id?', isAdmin, async (req, res, next) => {
     console.log('Users found', req.user);
     //isAdmin(req, res, next);
-  let id = req.params.id;
-  let email = req.params.email;
+    let id = req.params.id;
+    let email = req.params.email;
     if (id) {
         try {
             res.json((await db.Users.findOneById(id))[0]);
@@ -46,35 +46,35 @@ router.get('/:id?', isAdmin, async (req, res, next) => {
 });
 
 router.put('/:id', async (req, res) => {
-  let email = req.params.email;
+    let email = req.params.email;
 
-  console.log('Email has been updated!')
-  try {
-      res.json(await db.Users.updateEmail(email))
-  } catch (err) {
-      console.log(err);
-      res.sendStatus(500);
-  }
+    console.log('Email has been updated!')
+    try {
+        res.json(await db.Users.updateEmail(email))
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
 });
 
 router.put('/:id', async (req, res) => {
-  console.log('Password has been changed!')
-  try {
-      res.json(await db.Users.updatePassword(req.params.password));
-  } catch (err) {
-      console.log(err);
-      res.sendStatus(500);
-  }
+    console.log('Password has been changed!')
+    try {
+        res.json(await db.Users.updatePassword(req.params.password));
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
 })
 
 router.delete('/:id', async (req, res) => {
-  console.log('User has been deleted!')
-  try {
-      res.json(await db.Users.deleteUser(req.params.id));
-  } catch (err) {
-      console.log(err);
-      res.sendStatus(500);
-  }
+    console.log('User has been deleted!')
+    try {
+        res.json(await db.Users.deleteUser(req.params.id));
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
 })
 
 export default router;
