@@ -20,32 +20,26 @@ const isAdmin: express.RequestHandler = (req: ReqUser, res, next) => {
     }
 };
 
-router.get('/:id?', isAdmin, async (req, res) => {
-    console.log('works')
+router.get('/:id?', isAdmin, async (req, res, next) => {
+    console.log('works', req.user);
+    //isAdmin(req, res, next);
     let id = req.params.id
     if (id) {
         try {
-            
-            let restaurant = await db.Restaurants.findOneById(id);
-            let Rtags = await db.RestaurantTags.oneRestaurantTag(id);
-           
-            res.json({
-                restaurant: restaurant[0],
-                tags: Rtags,
-            });
+            res.json((await db.Restaurants.findOneById(id))[0]);
         } catch (err) {
             console.log(err);
             res.sendStatus(500);
         }
     } else {
         try {
-            
             res.json(await db.Restaurants.allRestaurants())
         } catch (err) {
             console.log(err);
             res.sendStatus(500);
         }
     }
-   
 });
-export default router
+
+export default router;
+
