@@ -4,6 +4,7 @@ import RandomRestaurants from "./randomRestaurants";
 import RandomBars from "./randomBars";
 import RandomAttractions from "./randomAtt";
 
+
 const RandomSuggestionPage: React.FC = (props: RandomProps) => {
 
     return(

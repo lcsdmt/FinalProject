@@ -19,6 +19,7 @@ body {
   no-repeat 75% 75%;
 background-size: cover;
 backdrop-filter: blur(4px);
+background-attachment: fixed;
 }
 
 header {
@@ -53,7 +54,7 @@ margin-top: 15;
 }
 nav {
   height: 50px;
-  background-color: rgba(32,32,32,.6)
+  background-color: rgba(32,32,32,.6) !important;
 }
 
 
@@ -115,7 +116,6 @@ nav ul li a {
   nav ul {
     max-height: 0px;
     background: #000;
-    margin-left: 16px;
   }
 
   nav.black ul {
@@ -175,4 +175,9 @@ padding: 2em;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .Signout{
+    margin-left: 15em;
+    margin-top: .65em;
   }
