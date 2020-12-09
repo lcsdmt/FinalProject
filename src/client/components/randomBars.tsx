@@ -36,13 +36,13 @@ const RandomBars: React.FC = (props: RandomProps) => {
                 website: data.result.website,
               });
             }
-            // else{
-            //   barsList.push({
-            //     barID: bar.place_id,
-            //     description: bar.description,
-            //     name: bar.name
-            //   })
-            // };
+            else{
+              barsList.push({
+                barID: bar.place_id,
+                description: bar.description,
+                name: bar.name
+              })
+            };
           });
       });
 
