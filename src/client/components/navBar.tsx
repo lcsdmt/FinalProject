@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { Link } from "react-router-dom";
 const NavBar: React.FC = (props: NavBarProps) => {
   return (
@@ -19,6 +20,11 @@ const NavBar: React.FC = (props: NavBarProps) => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="nav nav-pills container-fluid justify-content-end">
+        <li className="nav-item">
+            <a className="nav-link" href="/random">
+              Try Something New
+            </a>
+          </li>
           <li className="nav-item">
             <a className="nav-link" href="/auth/login">
               Login
@@ -29,11 +35,6 @@ const NavBar: React.FC = (props: NavBarProps) => {
               Home
             </a>
           </li>
-          {/* <Link to={``}>
-            <button className="btn btn-sm btn-outline-info rounded-pill">
-              SignIn
-          </button>
-          </Link> */}
         </ul>
       </div>
     </nav>

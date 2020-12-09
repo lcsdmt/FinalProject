@@ -6,7 +6,7 @@ import Restaurants from "./components/restaurantsPage";
 import Bars from "./components/barsPage";
 import Attractions from "./components/attractionsPage"
 import User from "./components/userPage";
-import RandomRec from "./components/randomSuggestion";
+import RandomSuggestionPage from "./components/randomSuggestionPage"
 
 const App: React.FC<IAppProps> = () => {
   return (
@@ -18,7 +18,7 @@ const App: React.FC<IAppProps> = () => {
         <Route exact path="/bars" component={Bars} />
         <Route exact path="/attractions" component={Attractions} />
         <Route exact path="/user/:id" component={User} />
-        <Route exact path="/random" component={RandomRec} />
+        <Route exact path="/random" component={RandomSuggestionPage} />
 
       </Switch>
     </Router>
