@@ -12,6 +12,9 @@ const SingleAttraction: React.FC = (props) => {
   const [loading, setLoading] = useState(true);
 
   const fetchattraction = async () => {
+    headers {
+      "allow-access-control-origin": "localhost:3000"
+    }
     const url = "https://cors-anywhere.herokuapp.com/";
     let path = url + `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.attraction.attractionID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
     await getData(path).then(data => {

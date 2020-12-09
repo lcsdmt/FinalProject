@@ -12,14 +12,13 @@ const Home: React.FC = (props: HomeProps) => {
     }
   })
   return (
-    <div id="Bodystuff" style={{ display: 'flex', flexDirection: 'row' }}>
+    <div id="Bodystuff" style={{ display: 'flex', flexDirection: 'row' }} className='d-flex justify-content-around'>
       <Card style={{ width: '25rem' }}>
         <Card.Img id = "Cardimg" variant="top" src="./assets/pics/wide.jpeg" />
         <Card.Body>
           <Card.Title>Restaurants</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+          The best food BHAM has to offer!
     </Card.Text>
           <Link to={`/restaurants`}>
             <button className="btn btn-sm btn-outline-info rounded-pill">
@@ -34,8 +33,7 @@ const Home: React.FC = (props: HomeProps) => {
         <Card.Body>
           <Card.Title>Bars</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+          For a good night out after a hard days work!
     </Card.Text>
           <Link to={`/bars`}>
             <button className="btn btn-sm btn-outline-info rounded-pill">
@@ -50,8 +48,7 @@ const Home: React.FC = (props: HomeProps) => {
         <Card.Body>
           <Card.Title>Attractions</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+          Have a free weekend? Let’s fill it up!
     </Card.Text>
           <Link to={`/attractions`}>
             <button className="btn btn-sm btn-outline-info rounded-pill">

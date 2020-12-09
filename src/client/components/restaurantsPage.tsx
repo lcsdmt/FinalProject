@@ -20,7 +20,13 @@ const Restaurants: React.FC = (props: RestaurantsProps) => {
   React.useEffect(() => {
     fetchRestaurants();
   }, []);
-  return restaurantIDs.map((restaurant, index) => <SingleRestaurant restaurant={restaurant} key={uuid()} />);
+  return (
+    <div className='resultsDiv'>
+      {restaurantIDs.map((restaurant, index) => (
+        <SingleRestaurant restaurant={restaurant} key={uuid()} />
+      ))}
+    </div>
+  );
 };
 
 interface RestaurantsProps { }
