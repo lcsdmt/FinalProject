@@ -6,22 +6,37 @@ import { getData } from "../requests/request";
 
 const Restaurants: React.FC = (props: RestaurantsProps) => {
   let dbRestaurantsInfo = [];
-  const [restaurantIDs, setRestaurantsInfo] = React.useState<iRestaurants[]>([]);
+  const [restaurantIDs, setRestaurantsInfo] = React.useState<iRestaurants[]>(
+    []
+  );
 
   const fetchRestaurants = async () => {
     let dbRestaurants: any = [];
     let path = "/api/restaurants";
-    await getData(path).then(data => {
-      dbRestaurants = data
-    }).catch(err => console.error(err));
-    dbRestaurants.forEach(restaurant => dbRestaurantsInfo.push({ restaurantID: restaurant.place_id, description: restaurant.description }));
+    await getData(path)
+      .then((data) => {
+        dbRestaurants = data;
+      })
+      .catch((err) => console.error(err));
+    dbRestaurants.forEach((restaurant) =>
+      dbRestaurantsInfo.push({
+        restaurantID: restaurant.place_id,
+        description: restaurant.description,
+      })
+    );
     setRestaurantsInfo([...dbRestaurantsInfo]);
   };
   React.useEffect(() => {
     fetchRestaurants();
   }, []);
-  return restaurantIDs.map((restaurant, index) => <SingleRestaurant restaurant={restaurant} key={uuid()} />);
+  return (
+    <div className="resultsDiv">
+      {restaurantIDs.map((restaurant, index) => (
+        <SingleRestaurant restaurant={restaurant} key={uuid()} />
+      ))}
+    </div>
+  );
 };
 
-interface RestaurantsProps { }
+interface RestaurantsProps {}
 export default Restaurants;

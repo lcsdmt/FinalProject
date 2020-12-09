@@ -12,7 +12,7 @@ const Home: React.FC = (props: HomeProps) => {
     }
   })
   return (
-    <div id="Bodystuff" style={{ display: 'flex', flexDirection: 'row' }}>
+    <div id="Bodystuff" style={{ display: 'flex', flexDirection: 'row' }} className="d-flex justify-content-around align-items-center">
       <Card style={{ width: '25rem' }}>
         <Card.Img id = "Cardimg" variant="top" src="./assets/pics/wide.jpeg" />
         <Card.Body>

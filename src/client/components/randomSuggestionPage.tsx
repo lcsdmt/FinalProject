@@ -8,7 +8,7 @@ const RandomSuggestionPage: React.FC = (props: RandomProps) => {
 
     return(
         <>
-        <div id="Bodystuff" style={{ display: 'flex', flexDirection: 'row' }}>
+        <div id="Bodystuff" style={{ display: 'flex', flexDirection: 'row' }} className="d-flex justify-content-around align-items-center">
         <RandomRestaurants/>
         <RandomBars/>
         <RandomAttractions/>
