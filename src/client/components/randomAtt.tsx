@@ -28,12 +28,11 @@ const RandomAttractions: React.FC = (props: RandomProps) => {
         )
           .then((res) => res.json())
           .then((data) => {
-            let websiteAttraction = data.result;
             attractionsList.push({
               attractionID: attraction.place_id,
               description: attraction.description,
-              name: attraction.name,
-              website: websiteAttraction.website,
+              name: data.result.name,
+              website: data.result.website,
             });
           });
       });

@@ -5,7 +5,7 @@ const NavBar: React.FC = (props: NavBarProps) => {
   return (
     <nav id="topnav" className="navbar navbar-expand-lg navbar-dark ">
       <a className="navbar-brand" href="/">
-        <strong>IRON SIGHTS</strong>
+        <strong>LOCAL HOST</strong>
       </a>
       <button
         className="navbar-toggler"
@@ -22,7 +22,7 @@ const NavBar: React.FC = (props: NavBarProps) => {
         <ul className="nav nav-pills container-fluid justify-content-end">
         <li className="nav-item">
             <a className="nav-link" href="/random">
-              Try Something New
+              Find Something New
             </a>
           </li>
           <li className="nav-item">

@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import RandomRestaurants from "./randomRestaurants";
 import RandomBars from "./randomBars";
 import RandomAttractions from "./randomAtt";
-import Card from 'react-bootstrap/Card';
 
 const RandomSuggestionPage: React.FC = (props: RandomProps) => {
 
