@@ -1,10 +1,22 @@
 import * as express from 'express';
-// import * as passport from 'passport';
+import * as passport from 'passport';
 
-import apiRouter from "./api";
+import loginRouter from './auth';
+import authRouter from './auth';
+import apiRouter from './api';
+
 
 const router = express.Router();
- 
+
+router.use((req, res, next) => {
+    passport.authenticate('bearer', { session: false }, (err, user, info) => {
+        if (user) req.user = user;
+        return next();
+    })(req, res, next);
+});
+
+router.use('/auth', authRouter);
+router.use('/login', loginRouter);
 router.use('/api', apiRouter);
 
 export default router;
