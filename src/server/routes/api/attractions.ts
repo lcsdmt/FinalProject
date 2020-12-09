@@ -12,17 +12,7 @@ interface ReqUser extends express.Request {
     }
 }
 
-// const isAdmin: RequestHandler = (req: ReqUser, res, next) => {
-//     if (!req.user || req.user.role !== 'admin') {
-//         return res.status(401).send("Oops, looks like you'll need to login to proceed!");
-//     } else {
-//         console.log("test")
-//         return next();
-//     }
-// };
-//             ADD isAdmin before the async here, and for bars and Restaurants as well
 router.get('/:id?', async (req, res, next) => {
-    console.log('workswef23rf2q3q@@@@@@@', req.user);
     let id = req.params.id
     if (id) {
         try {

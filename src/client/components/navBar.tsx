@@ -50,6 +50,9 @@ const NavBar: React.FC = (props: NavBarProps) => {
           <li className="nav-item">
             <a className="nav-link" href="/user/id">In My Sights</a>
           </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/findsomethingnew">Find Something New</a>
+          </li>
           {authBtn()}
         </ul>
       </div>
