@@ -3,8 +3,8 @@ import config from '../config'
 import Restaurants from './Queries/restaurants';
 import Bars from './Queries/bars';
 import Attractions from './Queries/attractions';
-import Users from './Auth/users';
-import AccessTokens from './Auth/accesstokens';
+import Users from './auth/users';
+import AccessTokens from './auth/accesstokens';
 import RestaurantFavorites from './restaurantfavorites';
 import BarFavorites from './barfavorites';
 import AttractionFavorites from './attractionfavorites';
