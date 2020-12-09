@@ -1,5 +1,5 @@
 import * as express from 'express';
-import db from '../../db';
+import db, { Query } from '../../db';
 
 
 const router = express.Router();
@@ -20,7 +20,7 @@ const isAdmin: express.RequestHandler = (req: ReqUser, res, next) => {
   }
 };
 
-router.get('/:userid', isAdmin, async (req, res) => {
+router.get('/:userid', async (req, res) => {
   console.log('works')
 
   try {
@@ -39,7 +39,38 @@ router.get('/:userid', isAdmin, async (req, res) => {
     res.sendStatus(500);
   }
 
-
-
 });
+
+/* router.post('/:userid', async (req, res) => {
+
+    console.log('working too')
+    try {
+      let newFav = await db.RestaurantFavorites.addRestaurantFavorites(req.params.restaurantid);
+      res.json(newFav);
+        res.status(200).send(
+            `New fav created with id: ${insertId}!`
+        );
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).send(err);
+    }
+});
+  
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* router.delete(); */
+
 export default router
