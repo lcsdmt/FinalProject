@@ -18,7 +18,7 @@ const App: React.FC<IAppProps> = () => {
         <Route exact path="/bars" component={Bars} />
         <Route exact path="/attractions" component={Attractions} />
         <Route exact path="/user/:id" component={User} />
-        <Route exact path="/random" component={RandomSuggestionPage} />
+        <Route exact path="/findsomethingnew" component={RandomSuggestionPage} />
 
       </Switch>
     </Router>
