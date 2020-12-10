@@ -10,12 +10,8 @@ import attractionFavoritesRouter from './favoriteAttractions'
 
 
 const router = express.Router();
-<<<<<<< HEAD
- 
-=======
 
 
->>>>>>> dev_Will
 router.use('/restaurants', restaurantRouter);
 router.use('/bars', barRouter);
 router.use('/attractions', attractionRouter);

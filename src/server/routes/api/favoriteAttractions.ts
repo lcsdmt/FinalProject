@@ -17,7 +17,8 @@ router.get('/:userid', async (req, res) => {
     await Promise.all(favIDs[0].map(async (attraction) => {
       try {
         let currentAttraction = await db.AttractionFavorites.getOne(attraction.attractionsid)
-        buzzing.push(currentAttraction[0].name)
+        buzzing.push(currentAttraction[0]);
+        // buzzing.push(currentAttraction[0].description)
       } catch (err) {
         console.error(err);
       }

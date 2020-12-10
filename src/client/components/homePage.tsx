@@ -10,6 +10,7 @@ const Home: React.FC = (props: HomeProps) => {
           <Card.Title>Restaurants</Card.Title>
           <Card.Text>
             The best food BHAM has to offer!
+            Hungry? We know you are. Click here to find your new favorite spot to eat or get your favorite dish from that place you love!
     </Card.Text>
           <Link to={`/restaurants`}>
             <button className="btn btn-sm btn-outline-info rounded-pill">
@@ -24,7 +25,7 @@ const Home: React.FC = (props: HomeProps) => {
         <Card.Body>
           <Card.Title>Bars</Card.Title>
           <Card.Text>
-            For a good night out after a hard days work!
+           2020 has been stressful. You deserve a drink! Explore some awesome bars and even take home a cocktail kit!
     </Card.Text>
           <Link to={`/bars`}>
             <button className="btn btn-sm btn-outline-info rounded-pill">
@@ -39,8 +40,8 @@ const Home: React.FC = (props: HomeProps) => {
         <Card.Body>
           <Card.Title>Attractions</Card.Title>
           <Card.Text>
-            Have a free weekend? Let’s fill it up!
-          </Card.Text>
+   Nothing to do? No where to go? Well we have the solution to that! Click here to find some local attractions!
+    </Card.Text>
           <Link to={`/attractions`}>
             <button className="btn btn-sm btn-outline-info rounded-pill">
               Attractions

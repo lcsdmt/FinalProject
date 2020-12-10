@@ -24,19 +24,17 @@ const RandomBars: React.FC = (props: RandomProps) => {
         const url = "https://cors-anywhere.herokuapp.com/";
         fetch(
           url +
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${bar.place_id}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
+            `https://maps.googleapis.com/maps/api/place/details/json?place_id=${bar.place_id}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
         )
           .then((res) => res.json())
           .then((data) => {
-            if (data.result.website) {
-              barsList.push({
-                barID: bar.place_id,
-                description: bar.description,
-                name: bar.name,
-                website: data.result.website,
-              });
-            }
-            else{
+            if(data.result.website)
+            {barsList.push({
+              barID: bar.place_id,
+              description: bar.description,
+              name: bar.name,
+              website: data.result.website
+            })}else{
               barsList.push({
                 barID: bar.place_id,
                 description: bar.description,
@@ -76,7 +74,7 @@ const RandomBars: React.FC = (props: RandomProps) => {
                 {randomBar.description}
                 <br />
               </Card.Text>
-              <button onClick={randomBars}>Bars</button>
+              <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill" onClick={randomBars}>Bars</button>
             </Card.Body>
           </Card>
         </div>
@@ -92,8 +90,11 @@ const RandomBars: React.FC = (props: RandomProps) => {
                 <br />
                 {randomBar.description}
                 <br />
+                
               </Card.Text>
-              <button onClick={randomBars}>Bars</button>
+              <div  className = "text-center">
+              <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill" onClick={randomBars}>Bars</button>
+            </div>
             </Card.Body>
           </Card>
         </div>
@@ -101,8 +102,12 @@ const RandomBars: React.FC = (props: RandomProps) => {
     }
   } else {
     return (
-      <div>
-        <button onClick={randomBars}>Bars</button>
+      <div className = "text-center">
+        <Card style={{ width: "25rem" }}>
+          <Card.Body>
+        <button className = "btn btn-sm btn-outline-info rounded-pill" onClick={randomBars}>Bars</button>
+        </Card.Body>
+         </Card>
       </div>
     );
   }
