@@ -62,15 +62,25 @@ const RandomAttractions: React.FC = (props: RandomProps) => {
               {randomAttraction.website}<br />
               {randomAttraction.description}<br />
             </Card.Text>
-            <button onClick={randomAttractions}>Attractions</button>
+            <Card style={{ width: "15rem" }}>
+          <Card.Body>
+            <div  className = "text-center">
+        <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill" onClick={randomAttractions}>Attractions</button>
+        </div>
+        </Card.Body>
+         </Card>
           </Card.Body>
         </Card>
       </div>
     );
   } else {
     return (
-      <div>
-        <button onClick={randomAttractions}>Attractions</button>
+      <div  className = "text-center">
+         <Card style={{ width: "25rem" }}>
+          <Card.Body>
+        <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill " onClick={randomAttractions}>Attractions</button>
+        </Card.Body>
+         </Card>
       </div>
     );
   }

@@ -63,15 +63,21 @@ const RandomRestaurants: React.FC = (props: RandomProps) => {
         {randomRest.website}<br/>
         {randomRest.description}<br/>
         </Card.Text>
-        <button onClick={randomRestaurants}>Restaurants</button>
+        <div  className = "text-center">
+        <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill" onClick={randomRestaurants}>Restaurants</button>
+       </div>
         </Card.Body>
         </Card>
       </div>
     );
   } else {
     return (
-      <div>
-        <button onClick={randomRestaurants}>Restaurants</button>
+      <div  className = "text-center">
+        <Card style={{ width: "25rem" }}>
+          <Card.Body>
+        <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill" onClick={randomRestaurants}>Restaurants</button>
+        </Card.Body>
+         </Card>
       </div>
     );
   }

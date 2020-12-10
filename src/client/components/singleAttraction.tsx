@@ -4,6 +4,7 @@ import spinner from "../utils/spinner";
 import uuid from "react-uuid";
 import Card from 'react-bootstrap/Card';
 import { getData } from "../requests/request";
+import Accordion from 'react-bootstrap/Accordion';
 
 const SingleAttraction: React.FC = (props) => {
   const [attraction, setAttraction] = useState<iAttractions>({});
@@ -38,12 +39,19 @@ const SingleAttraction: React.FC = (props) => {
   } else {
     return (
       <Fragment>
+         <Accordion defaultActiveKey="0">
         <Card style={{ display: "inline-block", width: '25rem' }}>
           <Card.Body>
+          <Accordion.Toggle as={Card.Header} eventKey="1">
+
             <Card.Title>{attraction.name}</Card.Title>
             <Card.Text>
               {attraction.description}
-            </Card.Text>
+              </Card.Text>
+            </Accordion.Toggle>
+          </Card.Body>
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>
             <Card.Text>
               <button
                 onClick={() => window.open(attraction.url)}
@@ -66,7 +74,9 @@ const SingleAttraction: React.FC = (props) => {
               {attraction.website}
             </button>
           </Card.Body>
+          </Accordion.Collapse>
         </Card>
+        </Accordion>
       </Fragment>
     )
   }

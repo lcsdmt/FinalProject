@@ -54,8 +54,7 @@ margin-top: 15;
 }
 nav {
   height: 50px;
-  background-color: rgba(32,32,32,.6);
-  
+  background-color: rgba(32,32,32,.6) !important;
 }
 
 
@@ -119,11 +118,16 @@ nav ul li a {
   nav ul {
     max-height: 0px;
     background: #000;
-    margin-left: 16px;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+  
   }
 
   nav.black ul {
     background: #000;
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+  
   }
 
   .showing {
@@ -180,3 +184,55 @@ padding: 2em;
     flex-direction: row;
     flex-wrap: wrap;
   }
+
+  .Signout{
+    margin-left: 15em;
+    margin-top: .65em;
+  }
+
+  .carousel img {
+    max-height: 500px;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: 50% 90%;
+}
+
+#burger {
+  max-height: 500px;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: 50% 50% !important;
+  filter: grayscale(45%);
+ 
+    background-image: linear-gradient(
+      rgba(32, 32, 32, 0),
+      rgba(64, 64, 64, 0.5),
+ )!important;
+}
+
+
+#caption {
+  top: 50% !important;
+transform: translateY(-65%) !important;
+text-shadow: 1px 1px 20px black, 5px 5px 25px black !important;
+
+}
+
+h1 {
+  font-size: 35px;
+}
+p {
+   font-weight: bold;
+   }
+
+.ranbutton {
+  justify-content: center !important;
+}
+
+#jumbotron {
+  background-color: rgb(32,32,32);
+  color: white !important;
+  opacity: .85;
+  transition: 0.3s;
+  
+}

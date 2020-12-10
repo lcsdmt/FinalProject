@@ -4,23 +4,17 @@ import { checkLogin, logout } from '../requests/request';
 const NavBar: React.FC = (props: NavBarProps) => {
   const authBtn = () => {
     if (checkLogin()) {
-      return <li className="nav-item"><Link className="nav-link" to="" onClick={logout}>Sign Out</Link></li>
+      return <li className="nav-item"><Link className="btn btn-sm btn-outline-info rounded-pill Signout" to="" onClick={logout}>Sign Out</Link></li>
     } else {
       return <ul className="nav-item">
         <li>
-          <Link className="nav-link" to="/Signup">Sign Up</Link>
+          <Link className="btn btn-sm btn-outline-info rounded-pill Signout" to="/Signup">Sign Up</Link>
         </li>
       </ul >
     }
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark"
-    style={{
-      position: "sticky",
-      top: 0,
-      zIndex: 100
-    }}
-    >
+    <nav className="navbar navbar-expand-lg navbar-dark">
       <a className="navbar-brand" href="/"><strong>Local Host</strong></a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -31,10 +25,10 @@ const NavBar: React.FC = (props: NavBarProps) => {
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/user/id">In My Sights</a>
+            <a className="nav-link" href="/user/id">Favorites</a>
           </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='/findsomethingnew'>Find Something New</a>
+          <li className="nav-item">
+            <a className="nav-link" href="/findsomethingnew">Random</a>
           </li>
           {authBtn()}
         </ul>
