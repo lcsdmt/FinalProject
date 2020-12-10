@@ -11,10 +11,10 @@ const User: React.FC = (props: UserProps) => {
   const [bFavorites, setBFavorites] = useState([]);
   const [aFavorites, setAFavorites] = useState([]);
 
-  React.useEffect(() => {
+  React.useEffect( () => {
     fetchBFAVS();
     fetchRFAVS();
-    fetchAFAVS();
+    fetchAFAVS(); 
   }, []);
 
   let fetchRFAVS = async () => {
@@ -34,7 +34,7 @@ const User: React.FC = (props: UserProps) => {
       }
     }).catch(err => console.error(err));
 
-  }; let fetchAFAVS = async () => {
+  };let fetchAFAVS = async () => {
     let path = `/api/favoriteattractions/${userId}`;
     await getData(path).then(data => {
       if (data) {
@@ -44,83 +44,86 @@ const User: React.FC = (props: UserProps) => {
   };
 
   return (
-    <div
-      className="main-container"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        textAlign: "center",
-        opacity: ".9"
-      }}
+    <div 
+    className="main-container"
+    style={{
+      display: "flex", 
+      justifyContent: "center",
+      textAlign: "center",
+      opacity: ".9"
+    }}
     >
       <div className="bars-container">
-        {bFavorites.map((itm, idx) => {
+      {bFavorites.map((itm, idx) => {
+        if(itm.name !==null)
           return (
             <Fragment key={idx}>
-              <Card style={{ display: "inline-block", width: '25rem' }}>
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      font: "helvetica"
-                    }}
-                  >{itm.name}</Card.Title>
-                  <Card.Text
-                  >{itm.description.substring(0, 100)}...</Card.Text>
-                  <Card.Text
-                    style={{
-                      color: "silver"
-                    }}
-                  >*Offers curbside cocktails!</Card.Text>
-                </Card.Body>
-              </Card>
+        <Card style={{ display: "inline-block", width: '25rem' }}>
+          <Card.Body>
+            <Card.Title
+            style={{
+              font: "helvetica"
+            }}
+            >{itm.name}</Card.Title>
+            <Card.Text
+            >{itm.description.substring(0, 100)}...</Card.Text>
+            <Card.Text
+            style={{
+                color: "silver"
+              }}
+            >*Offers curbside cocktails!</Card.Text>
+            </Card.Body>
+            </Card>
             </Fragment>
           )
         })}
       </div>
       <div className="restaurants-container">
-        {rFavorites.map((itm, idx) => {
+      {rFavorites.map((itm, idx) => {
+          if(itm.name !==null)
           return (
             <Fragment key={idx}>
-              <Card style={{ display: "inline-block", width: '25rem' }}>
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      font: "helvetica"
-                    }}
-                  >{itm.name}</Card.Title>
-                  <Card.Text
-                  >{itm.description.substring(0, 100)}...</Card.Text>
-                  <Card.Text
-                    style={{
-                      color: "silver"
-                    }}
-                  >*Observes COVID-19 social-distancing procedures</Card.Text>
-                </Card.Body>
-              </Card>
+        <Card style={{ display: "inline-block", width: '25rem' }}>
+          <Card.Body>
+            <Card.Title
+            style={{
+              font: "helvetica"
+            }}
+            >{itm.name}</Card.Title>
+            <Card.Text
+            >{itm.description.substring(0, 100)}...</Card.Text>
+            <Card.Text
+            style={{
+                color: "silver"
+              }}
+            >*Observes COVID-19 social-distancing procedures</Card.Text>
+            </Card.Body>
+            </Card>
             </Fragment>
           )
         })}
       </div>
       <div className="attractions-container">
-        {aFavorites.map((itm, idx) => {
+      {aFavorites.map((itm, idx) => {
+        if(itm.name !==null)
           return (
             <Fragment key={idx}>
-              <Card style={{ display: "inline-block", width: '25rem' }}>
-                <Card.Body>
-                  <Card.Title
-                    style={{
-                      font: "helvetica"
-                    }}
-                  >{itm.name}</Card.Title>
-                  <Card.Text
-                  >{itm.description.substring(0, 100)}...</Card.Text>
-                  <Card.Text
-                    style={{
-                      color: "silver"
-                    }}
-                  >*Get your tickets online!</Card.Text>
-                </Card.Body>
-              </Card>
+        <Card style={{ display: "inline-block", width: '25rem' }}>
+          <Card.Body>
+            <Card.Title
+            style={{
+              font: "helvetica"
+            }}
+            >{itm.name}</Card.Title>
+            <Card.Text
+            >{itm.description.substring(0, 100)}...</Card.Text>
+            <Card.Text
+            style={{
+                color: "silver"
+              }}
+            >*Get your tickets online!</Card.Text>
+            </Card.Body>
+            </Card>
             </Fragment>
           )
         })}
