@@ -7,28 +7,21 @@ const SingleAttraction: React.FC = (props) => {
   const [ifOpen, setIfOpen] = useState({});
   //   console.log(props.hey);
 
-  const fetchAttraction = async () => {
-    try {
-      const url = "https://cors-anywhere.herokuapp.com/";
-      await fetch(
-        url +
-          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.place.placeID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.result) {
-            data.result.description = props.place.description;
-            setAttraction(data.result);
-            setHours(data.result.opening_hours.weekday_text);
-            setIfOpen(data.result.opening_hours.open_now);
-          } else {
-            return;
-          }
-        })
-        .catch((err) => console.error(err));
-    } catch (error) {
-      console.log(error);
-    }
+  
+  const fetchattraction = async () => {
+    const url = "https://cors-anywhere.herokuapp.com/";
+    let path = url + `https://maps.googleapis.com/maps/api/place/details/json?place_id=${props.attraction.attractionID}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
+    await getData(path).then(data => {
+      if (data.result) {
+                data.result.description = props.attraction.description;
+                setAttraction(data.result);
+                setHours(data.result.opening_hours.weekday_text);
+                setIfOpen(data.result.opening_hours.open_now);
+                setLoading(false);
+              } else {
+                return;
+              }
+      }).catch(err => console.error(err));
   };
 
   useEffect(() => {

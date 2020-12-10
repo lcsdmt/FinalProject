@@ -21,8 +21,13 @@ const Bars: React.FC = (props: BarsProps) => {
   React.useEffect(() => {
     fetchBars();
   }, []);
-
-  return barIDs.map((bar, index) => <SingleBar bar={bar} key={index} />);
+  return (
+    <div className='resultsDiv'>
+      {barIDs.map((bar, index) => (
+        <SingleBar bar={bar} key={uuid()} />
+      ))}
+    </div>
+  );
 };
 
 interface BarsProps {}

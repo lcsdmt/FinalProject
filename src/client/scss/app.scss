@@ -14,6 +14,11 @@ body {
 body {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: lighter;
+  background: url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fkarlaalindahao%2Ffiles%2F2019%2F05%2FThe-Apparatus-Room-Detroit_Best-Restaurants-for-a-Big-Night-Out-2019_OpenTable-1200x800.jpg)
+  no-repeat 75% 75%;
+background-size: cover;
+backdrop-filter: blur(4px);
+background-attachment: fixed;
 }
 
 header {
@@ -46,9 +51,9 @@ margin-top: 420px;
 }
 
 nav {
-  position: fixed;
-  width: 100%;
-  line-height: 60px;
+  height: 50px;
+  background-color: rgba(32,32,32,.6);
+  position: sticky;
 }
 
 nav ul {
@@ -122,3 +127,42 @@ nav ul li a {
     display: block;
   }
 }
+
+.menu {
+  float: right;
+  margin-right: 16px;
+  word-spacing: 10px;
+}
+
+
+#cardimg{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+}
+
+#Bodystuff {
+padding: 2em;
+}
+
+.Card {
+  margin: 2em;
+  background-color: rgb(32,32,32);
+  color: white;
+  opacity: .85;
+  transition: 0.3s;
+  
+}
+
+.Card:hover {
+    opacity: 2;
+    transform:scale(1.025)
+  }
+
+
+  .resultsDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }

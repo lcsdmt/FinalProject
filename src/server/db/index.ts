@@ -1,9 +1,15 @@
 import * as mysql from "mysql";
 import config from '../config'
+<<<<<<< HEAD
 import Restaurants from './restaurants';
 import Bars from './bars';
 import Attractions from './attractions'
 import RestaurantTags from './restaurantfavorites'
+=======
+import Restaurants from './Queries/restaurants';
+import Bars from './Queries/bars';
+import Attractions from './Queries/attractions';
+>>>>>>> dev_Will
 import Users from './auth/users';
 import AccessTokens from './auth/accesstokens';
 import RestaurantFavorites from './restaurantfavorites';

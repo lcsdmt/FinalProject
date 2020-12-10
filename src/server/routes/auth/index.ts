@@ -3,6 +3,7 @@ import * as passport from 'passport';
 import loginRouter from './login';
 import registerRouter from './register';
 import userRouter from '../auth/users'
+import apiRouter from '../api'
 
 const router = express.Router();
 

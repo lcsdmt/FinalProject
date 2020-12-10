@@ -28,7 +28,7 @@ const User: React.FC = (props: UserProps) => {
       {/* <h1 style={{ color: "silver" }}> Whats in the Chamber so far...</h1> */}
       <div className="jumbotron jumbotron-fluid" style={{ color: "silver", backgroundColor: "#202020"}}>
   <div className="container">
-    <h1 className="display-4">What's in the Chamber so far...</h1>
+    <h1 className="display-4">Whats in the Chamber so far...</h1>
     <p className="lead">Take a look at what stuck out to you the most and let's go from there!</p>
   </div>
 </div> 

@@ -9,23 +9,11 @@ interface ReqUser extends express.Request {
         email: string,
         password: string,
         role: string,
-        //commonly a user record from the database
     }
 }
 
-const isAdmin: RequestHandler = (req: ReqUser, res, next) => {
-    //console.log("req.user", req)
-    if (!req.user || req.user.role !== 'admin') {
-        return res.sendStatus(401);
-    } else {
-        console.log("test")
-        return next();
-    }
-};
-
-router.get('/:id?', isAdmin, async (req, res, next) => {
+router.get('/:id?', async (req, res, next) => {
     console.log('Users found', req.user);
-    //isAdmin(req, res, next);
     let id = req.params.id;
     let email = req.params.email;
     if (id) {

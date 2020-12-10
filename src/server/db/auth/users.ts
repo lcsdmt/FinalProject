@@ -10,8 +10,7 @@ const deleteUser = async (id: any) => Query(`DELETE FROM users WHERE id = ${id}`
 
 const updatePassword = async (password: string) => Query(`UPDATE users SET password = ? WHERE id = ?`, [password]);
 
-const insert = async (email: string, password: string, role: string) => Query(`INSERT INTO users (email, password, role) VALUES (?,?,?)`, [email, password, role='guest'] );
-
+const insert = async (email: string, password: string, role: string) => Query(`INSERT INTO users (email, password, role) VALUES (?,?,?)`, [email, password, role = 'guest']);
 
 export default {
     findOneByEmail,

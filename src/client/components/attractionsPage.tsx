@@ -21,8 +21,13 @@ const Attractions: React.FC = (props: AttractionsProps) => {
   React.useEffect(() => {
     fetchAttractions();
   }, []);
-
-  return places.map((place, index) => <SingleAttraction place={place} key={index} />);
+  return (
+    <div className='resultsDiv'>
+      {attractionIDs.map((attraction, index) => (
+        <SingleAttraction attraction={attraction} key={uuid()} />
+      ))}
+    </div>
+  );
 };
 
 interface AttractionsProps {}
