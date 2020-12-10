@@ -1,4 +1,4 @@
-import { Query } from '../index';
+import { Query } from '../../../server/db/index';
 
 const findOne = async (id: number, token: string) => Query(`SELECT * FROM tokens WHERE ID = ${id} AND token = '${token}'`);
 

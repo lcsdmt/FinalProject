@@ -16,7 +16,7 @@ const RandomAttractions: React.FC = (props: RandomProps) => {
         headers: {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjI0LCJhY2Nlc3N0b2tlbmlkIjoyOSwidW5pcXVlIjoiMDQ4NGM1N2ViZjI3MTNmOTdhN2E4M2Q0NzUyZjY4YTRkYTlkN2U5ODJhNTA5OGY2YTJmY2M1OTE1ODUyZmYyMyIsImlhdCI6MTYwNzM3OTcwMX0.PFvaoArpyPgia8DoCDesvMKY_v0r9cxfX6ZLGTUmo_k",
-          "Access-Control-Allow-Origin": "localhost:3000",
+            "Access-Control-Allow-Origin": "localhost:3000",
         },
       });
       const attractionsDB = await data.json();
@@ -24,7 +24,7 @@ const RandomAttractions: React.FC = (props: RandomProps) => {
         const url = "https://cors-anywhere.herokuapp.com/";
         fetch(
           url +
-            `https://maps.googleapis.com/maps/api/place/details/json?place_id=${attraction.place_id}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
+          `https://maps.googleapis.com/maps/api/place/details/json?place_id=${attraction.place_id}&key=AIzaSyAntdFxOZs3uD0WwPVp4HUb4MZkXrgSnOA`
         )
           .then((res) => res.json())
           .then((data) => {
@@ -58,24 +58,34 @@ const RandomAttractions: React.FC = (props: RandomProps) => {
           <Card.Body>
             <Card.Title>{randomAttraction.name}</Card.Title>
             <Card.Text>
-              {randomAttraction.formatted_phone_number}<br/>
-              {randomAttraction.website}<br/>
-              {randomAttraction.description}<br/>
+              {randomAttraction.formatted_phone_number}<br />
+              {randomAttraction.website}<br />
+              {randomAttraction.description}<br />
             </Card.Text>
-            <button onClick={randomAttractions}>Attractions</button>
+            <Card style={{ width: "15rem" }}>
+          <Card.Body>
+            <div  className = "text-center">
+        <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill" onClick={randomAttractions}>Attractions</button>
+        </div>
+        </Card.Body>
+         </Card>
           </Card.Body>
         </Card>
       </div>
     );
   } else {
     return (
-      <div>
-        <button onClick={randomAttractions}>Attractions</button>
+      <div  className = "text-center">
+         <Card style={{ width: "25rem" }}>
+          <Card.Body>
+        <button className = "ranbutton btn btn-sm btn-outline-info rounded-pill " onClick={randomAttractions}>Attractions</button>
+        </Card.Body>
+         </Card>
       </div>
     );
   }
 };
 
-interface RandomProps {}
+interface RandomProps { }
 
 export default RandomAttractions;
