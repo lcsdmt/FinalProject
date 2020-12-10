@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { checkLogin, logout } from '../requests/request';
 const NavBar: React.FC = (props: NavBarProps) => {
-
   const authBtn = () => {
     if (checkLogin()) {
       return <li className="nav-item"><Link className="nav-link" to="" onClick={logout}>Sign Out</Link></li>
@@ -15,7 +14,13 @@ const NavBar: React.FC = (props: NavBarProps) => {
     }
   }
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark"
+    style={{
+      position: "sticky",
+      top: 0,
+      zIndex: 100
+    }}
+    >
       <a className="navbar-brand" href="/"><strong>Local Host</strong></a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -36,7 +41,9 @@ const NavBar: React.FC = (props: NavBarProps) => {
       </div>
     </nav>
   )
+  
 };
+
 
 interface NavBarProps { }
 

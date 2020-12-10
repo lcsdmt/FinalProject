@@ -1,49 +1,131 @@
 import * as React from "react";
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react';
+import Card from "react-bootstrap/esm/Card";
+import { getData } from '../requests/request';
 
 const User: React.FC = (props: UserProps) => {
 
+  const [userInfo, setUserInfo] = useState();
+  const [userId] = useState(sessionStorage.USER_ID);
+  const [rFavorites, setRFavorites] = useState([]);
+  const [bFavorites, setBFavorites] = useState([]);
+  const [aFavorites, setAFavorites] = useState([]);
 
-  const [userInfo, setUserInfo] = useState()
+  React.useEffect(() => {
+    fetchBFAVS();
+    fetchRFAVS();
+    fetchAFAVS();
+  }, []);
 
+  let fetchRFAVS = async () => {
+    let path = `/api/favoriterestaurants/${userId}`;
+    await getData(path).then(data => {
+      if (data) {
+        setRFavorites(data);
+      }
+    }).catch(err => console.error(err));
+  };
 
+  let fetchBFAVS = async () => {
+    let path = `/api/favoritebars/${userId}`;
+    await getData(path).then(data => {
+      if (data) {
+        setBFavorites(data);
+      }
+    }).catch(err => console.error(err));
+
+  }; let fetchAFAVS = async () => {
+    let path = `/api/favoriteattractions/${userId}`;
+    await getData(path).then(data => {
+      if (data) {
+        setAFavorites(data);
+      }
+    }).catch(err => console.error(err));
+  };
 
   return (
-    //     if (loggedIn) {
-    //       return (
-    // <div> Hello </div>
-    //       )
-    //     }
-    //     else
-
-    <>
-      {/* <h1><userInfo></userInfo></h1>
-      <br></br>
-      <h1 style={{color: "silver"}}>Favorite Restuarants</h1>
-      <br></br>
-      <h1 style={{color: "silver"}}>Favorite Bars</h1>
-      <br></br>
-      <h1 style={{color: "silver"}}>Favorite Attractions</h1> */}
-      
-      {/* <h1 style={{ color: "silver" }}> Whats in the Chamber so far...</h1> */}
-      <div className="jumbotron jumbotron-fluid" style={{ color: "silver", backgroundColor: "#202020"}}>
-  <div className="container">
-    <h1 className="display-4">Whats in the Chamber so far...</h1>
-    <p className="lead">Take a look at what stuck out to you the most and let's go from there!</p>
-  </div>
-</div> 
-      <div className="card" style={{ color: "silver" }}>
-        <div className="card-header">
-          res.body.name
-  </div>
-        <div className="card-body">
-          <blockquote className="blockquote mb-0">
-            <p>res.body.description</p>
-            <footer className="blockquote-footer">res.body.website <cite title="Call to to check COVID-19 etiquette!">|| res.body.phone</cite></footer>
-          </blockquote>
-        </div>
+    <div
+      className="main-container"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        textAlign: "center",
+        opacity: ".9"
+      }}
+    >
+      <div className="bars-container">
+        {bFavorites.map((itm, idx) => {
+          return (
+            <Fragment key={idx}>
+              <Card style={{ display: "inline-block", width: '25rem' }}>
+                <Card.Body>
+                  <Card.Title
+                    style={{
+                      font: "helvetica"
+                    }}
+                  >{itm.name}</Card.Title>
+                  <Card.Text
+                  >{itm.description.substring(0, 100)}...</Card.Text>
+                  <Card.Text
+                    style={{
+                      color: "silver"
+                    }}
+                  >*Offers curbside cocktails!</Card.Text>
+                </Card.Body>
+              </Card>
+            </Fragment>
+          )
+        })}
       </div>
-    </>
+      <div className="restaurants-container">
+        {rFavorites.map((itm, idx) => {
+          return (
+            <Fragment key={idx}>
+              <Card style={{ display: "inline-block", width: '25rem' }}>
+                <Card.Body>
+                  <Card.Title
+                    style={{
+                      font: "helvetica"
+                    }}
+                  >{itm.name}</Card.Title>
+                  <Card.Text
+                  >{itm.description.substring(0, 100)}...</Card.Text>
+                  <Card.Text
+                    style={{
+                      color: "silver"
+                    }}
+                  >*Observes COVID-19 social-distancing procedures</Card.Text>
+                </Card.Body>
+              </Card>
+            </Fragment>
+          )
+        })}
+      </div>
+      <div className="attractions-container">
+        {aFavorites.map((itm, idx) => {
+          return (
+            <Fragment key={idx}>
+              <Card style={{ display: "inline-block", width: '25rem' }}>
+                <Card.Body>
+                  <Card.Title
+                    style={{
+                      font: "helvetica"
+                    }}
+                  >{itm.name}</Card.Title>
+                  <Card.Text
+                  >{itm.description.substring(0, 100)}...</Card.Text>
+                  <Card.Text
+                    style={{
+                      color: "silver"
+                    }}
+                  >*Get your tickets online!</Card.Text>
+                </Card.Body>
+              </Card>
+            </Fragment>
+          )
+        })}
+      </div>
+    </div>
   );
 };
 

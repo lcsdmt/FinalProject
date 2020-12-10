@@ -17,7 +17,7 @@ router.get('/:userid', async (req, res) => {
     await Promise.all(favIDs[0].map(async (bar) => {
       try {
         let currentBar = await db.BarFavorites.getOne(bar.barsid)
-        buzzing.push(currentBar[0].name)
+        buzzing.push(currentBar[0])
       } catch (err) {
         console.error(err);
       }

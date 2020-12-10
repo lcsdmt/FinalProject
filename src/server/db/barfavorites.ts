@@ -4,7 +4,7 @@ import { Query } from './index';
 
 const findFavIdbyUserId = (userid: any) => Query(`call localhost.spBarFavs(${userid})`);
 
-const getOne = (barid: any) => Query(`select bars.id, bars.name from bars
+const getOne = (barid: any) => Query(`select bars.id, bars.name, bars.description from bars
 join favorites on favorites.barsid = bars.id
 where favorites.barsid = ${barid};
  `);

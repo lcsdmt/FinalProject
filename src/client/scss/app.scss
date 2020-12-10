@@ -50,12 +50,12 @@ margin-top: 15;
 }
 
 .nav-link {
-  margin-left: 150px;
+  margin-left: 50px;
 }
 nav {
   height: 50px;
   background-color: rgba(32,32,32,.6);
-  position: sticky;
+  
 }
 
 
@@ -106,6 +106,8 @@ nav ul li a {
   .navbar {
     padding: 0.5em 1em !important;
     float: left;
+    position: sticky; 
+    top: 0
   }
   
   .logo {

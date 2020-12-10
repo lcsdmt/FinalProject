@@ -17,7 +17,7 @@ router.get('/:userid', async (req, res) => {
     await Promise.all(favIDs[0].map(async (restaurant) => {
       try {
         let currentRestaurant = await db.RestaurantFavorites.getOne(restaurant.restaurantid)
-        buzzing.push(currentRestaurant[0].name)
+        buzzing.push(currentRestaurant[0])
       } catch (err) {
         console.error(err);
       }

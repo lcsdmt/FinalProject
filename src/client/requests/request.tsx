@@ -1,3 +1,4 @@
+
 function manageData(path, method = "GET", dto = {}) {
     let data = {
         method: method,
@@ -51,11 +52,9 @@ export function checkLogin() {
 }
 
 export function logout() {
-    // remove user from session storage to log user out
     let { AUTH_TOKEN } = sessionStorage;
     if (AUTH_TOKEN) {
         sessionStorage.removeItem("AUTH_TOKEN");
         sessionStorage.removeItem("LOGGED_IN_USER");
     }
-    location.reload();
 }
